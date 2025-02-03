@@ -381,9 +381,7 @@ button[type="reset"], button[type="submit"] {
 
 /* === Message d'erreur === */
 .error {
-    color: #000000;  /* Couleur des messages d'erreur en jaune */
-    font-size: 0.9rem;
-    margin-top: 5px;
+    color: #ffed00;  /* Couleur des messages d'erreur en jaune */
 }
 
 /* Changer la couleur du contour (outline) lorsqu'un champ est focus */
