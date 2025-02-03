@@ -350,6 +350,15 @@ button[type="reset"], button[type="submit"] {
     width: 150px;
 }
 
+button a {
+    color: #2368e1 !important; /* Force la couleur blanche pour le texte du lien */
+    text-decoration: none;   /* Garde le lien sans soulignement */
+}
+
+button a:hover {
+    text-decoration: underline; /* Ajouter un effet au survol du lien si souhaité */
+}
+
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
 

@@ -1,8 +1,6 @@
 /* == OVERALL DEFINITIONS == */
 
-html{
-	font-size: calc(12px + 0.390625vw);
-}
+
 
 .text-center{ 
     text-align: center; 
@@ -106,7 +104,7 @@ header nav ol.breadcrumb{
     padding: .75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #e9ecef;
+    background-color: #c0e2ff;
     border-radius: .25rem;
 	font-size: 75%;
 }
@@ -124,12 +122,12 @@ header nav ol.breadcrumb li.breadcrumb-item:not(:last-child)::after{
 	display: inline-block;
     padding-right: .5rem;
     padding-left: .5rem;
-    color: #6c757d;
+    color: #173b7a;
     content: ">";
 }
 
 header nav.breadcrumb ol li.breadcrumb-item.active{
-	color: #6c757d;
+	color: #c0e2ff;
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
@@ -139,73 +137,6 @@ body{
 	background-color: #000000;
 	margin: 0;
     font-family: arial;
-}
-
-main{
-	padding: 15px;
-}
-
-.wrapper{
-	max-width: 1090px;
-	margin: 0 auto;
-	background-color: rgb(0, 255, 60);
-	border: 1px solid grey;
-	padding: 15px;
-}
-
-
-/* Side-by-side elements using Flex method*/
-.flex-container{
-	display: flex;
-}
-
-.flex-child{
-	flex: 1;
-}
-
-.flex-child:not(:last-child){
-	padding-right: 20px;	
-}
-
-/* Forms */
-label{
-	font-weight: 900;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #ffffff;
-    
-}
-
-input, select, textarea{
-	border: 0;
-    padding: 8px 5px;
-    margin-top: 5px;
-    border-radius: 8px;
-    color: #000000;
-}
-
-/* Cibler directement les labels de checkbox et radio */
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  color: white !important; 
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  color: white !important;
-  background-color: transparent; 
-}
-
-form {
-    color: white !important;  
-}
-
-.small {
-    color: white !important; 
-}
-
-textarea{
-	resize: none;
 }
 
 button{
@@ -222,103 +153,6 @@ button{
     padding: 8px 15px;
 }
 
-button[type="reset"]{
-	background-color: #2368e1;
-	color: rgb(255, 255, 255);
-}
-
-button[type="reset"]:hover{
-	background-color: #2368e1;
-}
-
-button[type="submit"]{
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	border: 1px solid transparent;
-}
-
-button[type="submit"]:hover{
-	background-color: #2368e1;
-}
-
-input[type="file"] {
-    display: none;
-    
-}
-
-.file-upload{
-    display: inline-block;
-	transition: background-color 300ms ease 0s, color 300ms ease 0s;
-	padding: 8px 15px;
-    margin-top: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	font-size: 0.8em;
-	border: 1px solid transparent;
-}
-
-.file-upload:hover{
-	background-color:#2368e1;
-}
-
-input[type="radio"]{
-	accent-color: #2368e1;
-}
-
-.form-section {
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 65%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 2;
-}
-  
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1; 
-}
-
-.form-section-flou{
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 2;
-}
-
-.form-section-flou::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1; 
-}
-
-.form-section form {
-    z-index: 2;
-    position: relative;
-}
-
 button {
     text-transform: uppercase;
     background-color: #2368e1;
@@ -330,25 +164,6 @@ button {
     cursor: pointer;
 }
   
-button[type="reset"] {
-    background-color: #2368e1;
-    color: #ffffff;
-}
-  
-/* Styles for tags */
-.tag {
-    padding: .25rem .5rem;
-    background-color: white;
-    border: 1px solid black;
-    font-size: .75rem;
-    line-height: 1.1rem;
-    border-radius: 4px;
-}
-  
-.tag:not(:last-child) {
-    margin-right: 5px;
-}
-
 /* Conteneur pour les boutons (centrer et aligner côte à côte) */
 .button-container {
     display: flex;
@@ -370,10 +185,7 @@ button {
     width: 150px; /* Largeur fixe pour les boutons */
 }
   
-button[type="reset"], button[type="submit"] {
-    /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
-    width: 150px;
-}
+
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
@@ -474,3 +286,105 @@ footer{
     }
 }
   
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+/*Responsive*/
+/* Menu toggle button pour mobile */
+.menu-toggle {
+    display: none; 
+    background: #222;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Menu principal en colonne sur mobile */
+  @media (max-width: 768px) {
+    .main-menu {
+      display: none; 
+      flex-direction: column;
+      background-color: #222;
+      padding: 10px;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      border-radius: 10px;
+      z-index: 10;
+    }
+  
+    .menu-item {
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+    /* Afficher le menu lorsque le bouton est activé */
+    .main-menu.active {
+      display: flex;
+    }
+  
+    /* Afficher le bouton menu sur mobile */
+    .menu-toggle {
+      display: block;
+    }
+  }
+  
+  /* Le menu par défaut pour les écrans plus grands */
+  @media (min-width: 769px) {
+    .menu-toggle {
+      display: none; 
+    }
+  }
+  
+  .hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #222;
+    width: 250px;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    z-index: 100;
+  }
+  
+  .hamburger-menu .menu-item {
+    margin: 20px 0;
+    color: white;
+  }
+  
+  .hamburger-menu .menu-item a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  #close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  /* Style de l'icône hamburger */
+  .menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #222;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+  }
+  
+  /* Pour afficher le menu lorsque l'icône est cliquée */
+  .hamburger-menu.active {
+    display: flex;
+  }
+
+  
+

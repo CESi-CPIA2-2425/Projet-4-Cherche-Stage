@@ -37,6 +37,15 @@ h3{
     color: #ffffff
 }
 
+.small a {
+    color: white !important; 
+    text-decoration: none;    
+}
+
+.small a:hover {
+    text-decoration: underline; 
+}
+
 .grey{ 
     color: #ffffff; 
 }

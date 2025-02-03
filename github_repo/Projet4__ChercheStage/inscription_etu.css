@@ -37,6 +37,15 @@ h3{
     color: #ffffff
 }
 
+.small a {
+    color: white !important; 
+    text-decoration: none;    
+}
+
+.small a:hover {
+    text-decoration: underline; 
+}
+
 .grey{ 
     color: #ffffff; 
 }
@@ -145,13 +154,7 @@ main{
 	padding: 15px;
 }
 
-.wrapper{
-	max-width: 1090px;
-	margin: 0 auto;
-	background-color: rgb(0, 255, 60);
-	border: 1px solid grey;
-	padding: 15px;
-}
+
 
 
 /* Side-by-side elements using Flex method*/
@@ -220,6 +223,7 @@ button{
     -webkit-box-pack: center;
     justify-content: center;
     padding: 8px 15px;
+    border: 2px solid yellow;
 }
 
 button[type="reset"]{
@@ -373,6 +377,25 @@ button {
 button[type="reset"], button[type="submit"] {
     /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
     width: 150px;
+}
+
+/* === Message d'erreur === */
+.error {
+    color: #000000;  /* Couleur des messages d'erreur en jaune */
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Changer la couleur du contour (outline) lorsqu'un champ est focus */
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #ffed00;  /* Couleur jaune pour le contour */
+    border-color: #ffed00; /* Couleur jaune pour la bordure */
+}
+
+/* Optionnel : Changer la couleur de la bordure pour les champs invalides lorsqu'ils sont en focus */
+input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+    border-color: #ffed00;  /* Jaune pour la bordure des champs invalides */
+    outline: none; /* Éviter l'outline par défaut du navigateur */
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/

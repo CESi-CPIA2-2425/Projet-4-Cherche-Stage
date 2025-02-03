@@ -16,7 +16,7 @@ html{
 
 h1{
 	font-size: 1.8rem;
-    color: white;
+    color: #2368e1;
 }
 
 h2{
@@ -36,17 +36,9 @@ h3{
 	font-size: 75%;
     color: #ffffff
 }
-.small a {
-    color: white !important; 
-    text-decoration: none;
-}
-
-.small a:hover {
-    text-decoration: underline; 
-}
 
 .grey{ 
-    color: #ffffff!important; 
+    color: #ffffff; 
 }
  
 /*-----------------------------------------------------------------------------------------------------------------------------*/
@@ -144,7 +136,7 @@ header nav.breadcrumb ol li.breadcrumb-item.active{
 /*Body*/
 
 body{
-	background-color: #000000;
+	background-color: #f0f6fd;
 	margin: 0;
     font-family: arial;
 }
@@ -294,33 +286,12 @@ input[type="radio"]{
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
+    background: #d8dade;
     background-size: cover;
     z-index: -1; 
 }
 
-.form-section-flou{
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 2;
-}
 
-.form-section-flou::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1; 
-}
 
 .form-section form {
     z-index: 2;
@@ -381,15 +352,6 @@ button {
 button[type="reset"], button[type="submit"] {
     /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
     width: 150px;
-}
-
-button a {
-    color: white !important; /* Force la couleur blanche pour le texte du lien */
-    text-decoration: none;   /* Garde le lien sans soulignement */
-}
-
-button a:hover {
-    text-decoration: underline; /* Ajouter un effet au survol du lien si souhaité */
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/

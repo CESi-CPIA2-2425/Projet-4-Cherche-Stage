@@ -37,8 +37,17 @@ h3{
     color: #ffffff
 }
 
+.small a {
+    color: white !important; 
+    text-decoration: none;    
+}
+
+.small a:hover {
+    text-decoration: underline; 
+}
+
 .grey{ 
-    color: #ffffff; 
+    color: #ffffff!important; 
 }
  
 /*-----------------------------------------------------------------------------------------------------------------------------*/
@@ -373,6 +382,15 @@ button {
 button[type="reset"], button[type="submit"] {
     /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
     width: 150px;
+}
+
+button a {
+    color: white !important; /* Force la couleur blanche pour le texte du lien */
+    text-decoration: none;   /* Garde le lien sans soulignement */
+}
+
+button a:hover {
+    text-decoration: underline; /* Ajouter un effet au survol du lien si souhaité */
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
