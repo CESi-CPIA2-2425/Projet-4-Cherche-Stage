@@ -142,6 +142,9 @@ body{
     min-height: 200vh;
 }
 
+
+
+  
 main{
 	padding: 15px;
 }
@@ -161,6 +164,7 @@ main{
     margin-bottom: 40px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
     box-sizing: border-box; /* Permet de positionner les boutons */
+    height: 700px;
 }
 
 
@@ -201,7 +205,18 @@ main{
     margin-bottom: 5px;
   }
   
-
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  textarea {
+    height: 80px;
+  }
+  
 
 
 
