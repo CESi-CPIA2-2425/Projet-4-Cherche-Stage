@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+
+
+
+<header>
+
+  <img src="images/lebonplan%20logo.png" alt="Image illustrant le contenu de Page 1" style="max-width:100%; height:auto;">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postuler à une offre de stage</title>
+  <link rel="stylesheet" href="accueil.css">
+
+
+
+  <div class="top-navigation-main">
+    <nav class="main-nav" aria-label="Main menu">
+      <!-- Bouton pour ouvrir/fermer le menu -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+      <ul class="main-menu" id="main-menu">
+        <li class="menu-item"><a href="file:./main.HTML" class="top-level-entry active">Acceuil</a></li>
+        <li class="menu-item"><a href="file:./entreprise.HTML" class="top-level-entry">Entreprise</a></li>
+        <li class="menu-item"><a href="file:./offres.HTML" class="top-level-entry">Offres</a></li>
+        <li class="menu-item"><a href="file:./wishlist.HTML" class="top-level-entry">Wishlist</a></li>
+        <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry">Contact</a></li>
+
+        <div class="auth-container">
+          <a href="#" class="login-link">Connexion  |</a>
+          <a href="#" class="button primary mdn-plus-subscribe">S'incrire</a>
+        </div>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="subpage-info">
+    <span class="current-page">Acceuil > </span>
+  </div>
+  <script>
+    // Cibler le bouton hamburger et le menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
+
+    // Ajouter un événement au clic pour afficher/masquer le menu
+    menuToggle.addEventListener('click', function() {
+      mainMenu.classList.toggle('active'); // Cette ligne ajoutera ou retirera la classe 'active' pour ouvrir/fermer le menu
+    });
+  </script>
+
+</header>
+
+
+<main>
+  <!-- Job Listings Section -->
+  <section class="job-listings">
+    <h2>Offres récentes</h2>
+    <div class="jobs-grid">
+      <article class="job-card">
+        <h3>Technicien en électricité - Stage 8 semaines</h3>
+        <a href="#" class="job-link">En savoir plus</a>
+      </article>
+      <article class="job-card">
+        <h3>Boulanger patissier - Alternance 2 ans</h3>
+        <a href="#" class="job-link">En savoir plus</a>
+      </article>
+      <article class="job-card">
+        <h3>Développeur Web - Stage 6 mois</h3>
+        <a href="#" class="job-link">En savoir plus</a>
+      </article>
+      <article class="job-card">
+        <h3>Graphiste - Alternance 1 an</h3>
+        <a href="#" class="job-link">En savoir plus</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Hero Section (Text Below Job Listings) -->
+  <section class="hero">
+    <div class="hero-content">
+      <p>Vous recherchez un Stage ou une Alternance ?</p>
+      <h1>LeBonPlan est là pour vous aider !</h1>
+      <p>Avec plus de 15 millions d’élèves inscrits et 45 000 entreprises référencées, vous trouverez forcément une annonce qui vous correspond.</p>
+      <button>Inscrivez-vous !</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+
+  <img src="images/chapeau%20lebonplan.png" alt="Image illustrant le contenu de Page 1" style="max-width:100%; height:auto;">
+  <p>cookies</p>
+  <p> F.A.Q</p>
+</footer>
+
+</html>
