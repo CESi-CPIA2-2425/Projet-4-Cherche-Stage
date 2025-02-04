@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postuler à une offre de stage</title>
+    <link rel="stylesheet" href="authentifier.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">lebonplan</div>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Entreprises</a></li>
+                <li><a href="#">Offres</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="auth"><a href="#">Connexion</a></li>
+                <li class="auth"><a href="#" class="btn">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <h2>Postuler à une offre de stage</h2>
+        <p>Vous pouvez ici répondre directement à l'offre de stage déposée par l'entreprise.</p>
+
+        <section class="job-info">
+            <h3>Stage - Administrateur Système et Réseau H/F</h3>
+            <button class="resume-btn">Résumé de l'offre</button>
+        </section>
+
+        <h3>Envoyez votre candidature dès maintenant !</h3>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="civilite">CIVILITÉ</label>
+                <select id="civilite" name="civilite">
+                    <option value="madame">Madame</option>
+                    <option value="monsieur">Monsieur</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="nom">NOM</label>
+                <input type="text" id="nom" name="nom">
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">PRÉNOM </label>
+                <input type="text" id="prenom" name="prenom">
+            </div>
+
+            <div class="form-group">
+                <label for="email">COURRIEL</label>
+                <input type="email" id="email" name="email">
+            </div>
+
+            <fieldset>
+                <legend>À PROPOS DE VOUS</legend>
+                <label><input type="checkbox"> Permis B</label>
+                <label><input type="checkbox"> Véhicule</label>
+                <label><input type="checkbox"> Certifications (Microsoft, Cisco...)</label>
+            </fieldset>
+           
+            <form action="traitement.php" method="post">
+                <label>Je suis majeur :</label>
+                
+                <label><input type="radio" name="majeur" value="Oui" required> Oui</label>
+                <label><input type="radio" name="majeur" value="Non" required> Non</label>
+            
+                <br><br>
+             
+            </form>
+              
+
+            <div class="form-group">
+                <label for="message">VOTRE MESSAGE AU RECRUTEUR</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="cv">CV</label>
+                <input type="file" id="cv" name="cv" style="display: none;">
+                <label for="cv" class="btn-orange" style="color: white; font-weight: bold; display: inline-block; padding: 11px 20px; cursor: pointer;">AJOUTER MON CV</label>
+                <p style="margin-top: 5px;">Poids max: 2Mo<br>Formats: .pdf, .doc, .docx, .odt, .rtf, .jpg ou .png</p>
+            </div>
+            
+            
+
+            <button type="submit" class="btn-orange">Postuler</button>
+            <button type="submit" class="btn-white">rénitialiser</button>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2025 - Tous droits réservés - WebAdM</p>
+    </footer>
+
+</body>
+</html>

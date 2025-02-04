@@ -1,0 +1,176 @@
+body {
+    /*color:black;*/
+    background-color:white;
+    /*background-image:url(file:./fond.JPG);
+    background-repeat:repeat;
+    background-attachment: fixed; */
+  }
+  
+  footer{background-color: black;height:60px;margin:60px 0 -10px 0}
+  
+  .contour-titre{background-color: rgb(255, 255, 255); width: 280px;height: 100px;display: block;margin:0 auto;margin-bottom: 30px}
+  .titre{font-style: bold; color: rgb(255, 140, 0);padding:30px 40px 25px 40px; font-family:calibri;}
+  .presentation{background-color: #ffffff: 1px solid;padding: 10px;font-family:calibri;font-size:22px}
+  .conteneur{width: 100%;padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;max-width: 1000px; font-family:calibri}
+  /* *, ::after, ::before {box-sizing: border-box;} */
+  .ligne{display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;font-family:calibri}
+  .h2{padding: 25px;margin-top:20px; font-family:calibri; color: rgb(0, 0, 0);}
+  
+  .Stage{background-color: #ffffff;padding: 25px;margin-top:20px; font-family:calibri; color: rgb(0, 0, 0);}
+  .Envoyer{background-color: #ffffff;padding: 25px;margin-top:20px;font-family:calibri; color: rgb(0, 0, 0);}
+  /*..Fantastique{background-color: #99FFFF;padding: 25px;margin-top:30px;font-family:Comic Sans MS}
+  .Historique{background-color: #99FFCC;padding: 25px;margin-top:30px;font-family:Comic Sans MS}*/
+  
+  
+  /*Pour centrer le texte*/
+  .centre-texte{text-align: center}
+  .aligner-milieu{display: block;margin:0 auto;}
+  /*Pour forcer le centrage du texte de niveau Header1 */
+  h1 { text-align: center }
+  
+  /*Cela va me servir à 'découper' une ligne*/
+  .pleine-largeur{position: relative;width: 100%;padding-right: 15px;padding-left: 15px;flex: 0 0 100%;max-width: 100%}
+  .trois-quarts-largeur{position: relative;width: 100%;padding-right: 15px;padding-left: 15px;flex: 0 0 75%;max-width: 75%}
+  .moitie-largeur{position: relative;width: 100%;padding-right: 15px;padding-left: 15px;flex: 0 0 50%;max-width: 50%}
+  .tiers-largeur{position: relative;width: 100%;padding-right: 15px;padding-left: 15px;flex: 0 0 33.333333%;max-width: 33.333333%}
+  .quart-largeur{position: relative;width: 100%;padding-right: 15px;padding-left: 15px;flex: 0 0 25%;max-width: 25%}
+  
+  /*footer*/
+  .texte-footer{color: white;text-align: center} 
+
+
+
+
+
+
+/* Conteneur principal */
+.top-navigation-main {
+    background-color: #000000; /* Fond noir */
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Navigation principale */
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: white; /* Texte en blanc */
+  }
+  
+  /* Menu principal */
+  .main-menu {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  
+  .menu-item {
+    position: relative;
+    margin-right: 25px;
+  }
+  
+  /* Liens du menu */
+  .top-level-entry {
+    color: white; /* Texte blanc */
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    display: inline-block;
+  }
+  
+  .top-level-entry:hover {
+    color: rgb(255, 140, 0); /* Bleu au survol */
+  }
+  
+  /* L'élément actif devient gris */
+  .top-level-entry.active {
+    color: rgb(255, 140, 0); /* Gris pour l'élément actif */
+    border-radius: 5px;
+  }
+  
+  .top-level-entry.active:hover {
+    background-color: #555;
+  }
+  
+  /* Sous-menu */
+  .submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; /* Ne pas l'afficher automatiquement */
+    background-color: white; /* Sous-menu blanc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    margin-top: 5px;
+  }
+  
+  /* Liens dans le sous-menu */
+  .submenu-item {
+    text-decoration: none;
+    color: #000000; /* Texte sombre pour le sous-menu */
+    padding: 8px 15px;
+    display: block;
+  }
+  
+  .submenu-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Afficher sous-menu au clic (ajouter la classe .active) */
+  .menu-item.active > .submenu {
+    display: block;
+  }
+  
+  /* Conteneur d'authentification */
+  .auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .auth-container .login-link {
+    text-decoration: none;
+    color: #ffffff; /* Bleu pour "Log in" */
+    margin-right: 15px;
+    font-weight: bold;
+  }
+  
+  .auth-container .login-link:hover {
+    text-decoration: underline;
+  }
+  
+  .auth-container .button.primary {
+    background-color: #ffffff; /* Bleu pour "Sign up" */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .auth-container .button.primary:hover {
+    background-color: #ffffff; /* Couleur plus sombre au survol */
+  }
+  
+  .auth-container .button.primary:active {
+    background-color: #ffffff;
+  }
+  
+  /* Informations de la sous-page */
+  .subpage-info {
+    background-color: #d8ecf5;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .current-page {
+    font-weight: bold;
+    color: rgba(38, 128, 255, 0.927); /* Bleu pour le texte de la sous-page */
+  }
+  
+  
