@@ -1,0 +1,176 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif; /* Police par défaut */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Espacement des lignes */
+    color: #333; /* Couleur du texte principal */
+}
+
+/* En-tête */
+header {
+    background-color: #000000; /* Fond noir */
+    color: #fff; /* Texte blanc */
+    padding: 10px 20px;
+
+}
+header img {
+    margin: 0 auto; /* Centre seulement l’image */
+    display: block; /* Évite les marges indésirables */
+}
+
+
+/* Navigation dans l'en-tête */
+header nav ul {
+    list-style: none; /* Supprime les puces des listes */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Alignement des éléments à droite */
+}
+
+/* Espacement entre les éléments de la navigation */
+header nav ul li {
+    margin: 0 15px;
+}
+
+/* Liens de la navigation */
+header nav ul li a {
+    color: #fff; /* Couleur du texte blanc */
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: bold; /* Texte en gras */
+}
+
+/* Quand la souris passe dessus, la couleur du texte change */
+.top-level-entry:hover {
+    color: rgb(0, 123, 255);
+}
+
+/* L'élément actif devient bleu avec un léger arrondi */
+.top-level-entry.active {
+    color: rgb(0, 123, 255);
+    border-radius: 5px;
+}
+
+/* Sous-menu */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    margin-top: 5px
+}
+
+/* Liens dans le sous-menu */
+.submenu-item {
+    text-decoration: none;
+    color: #000000;
+    padding: 8px 15px;
+    display: block
+}
+
+.submenu-item:hover {
+    background-color: #f1f1f1
+}
+
+/* Afficher sous-menu au clic */
+.menu-item.active > .submenu {
+    display: block
+}
+
+/* Section pour les offres d'emploi */
+.job-listings {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Arrière-plan gris clair */
+}
+
+/* Titre de la section des offres */
+.job-listings h2 {
+    text-align: center; /* Centrage du titre */
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Grille des offres */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Disposition automatique */
+    gap: 20px; /* Espacement entre les cartes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Carte individuelle d'une offre */
+.job-card {
+    background-color: #fff;
+    border: 1px solid #ddd; /* Bordure légère */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: center;
+}
+
+/* Titre de l'offre d'emploi */
+.job-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+/* Bouton de lien vers l'offre */
+.job-link {
+    background-color: #007BFF; /* Fond bleu */
+    color: #fff; /* Texte blanc */
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Section de présentation sous les offres */
+.hero {
+    background-color: #007BFF; /* Fond bleu */
+    color: #fff; /* Texte blanc */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* Contenu de la section de présentation */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Titre principal de la section */
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Paragraphe de la section */
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Bouton de la section */
+.hero button {
+    background-color: #fff; /* Fond blanc */
+    color: #007BFF; /* Texte bleu */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Pied de page */
+footer {
+    background-color: #000000; /* Fond noir */
+    color: #fff; /* Texte blanc */
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
