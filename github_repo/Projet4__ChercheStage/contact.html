@@ -1,0 +1,92 @@
+<!doctype html> 
+<html lang="fr"> 
+   <head> 
+      <meta charset="utf-8">
+      <meta name="description" content="Postuler à une offre de stage">
+      <title>Lebonplan</title>
+      <link rel="stylesheet" href="cookies.css">
+      <link rel="icon" href="./logo_chap.png">
+    </head> 
+    <body>
+    <header style="text-align: center; padding: 20px;">
+        <img src="file:./logo.png" alt="Logo" style="width: 500px;"> 
+    </header>
+    <header>
+        <div class="navbar">
+            <!-- Bouton hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+            
+            <nav class="nav-items-container">
+                <ul class="main-menu" id="main-menu">
+                    <li class="menu-item"><a href="file:./main.HTML" class="top-level-entry active">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry">Contact</a></li>
+                </ul>
+
+                <!-- Liens de Connexion et S'inscrire à droite -->
+                <div class="auth-links">
+                    <a href="file:./choix_compte_conn.html" class="navitem">Connexion</a>
+                    <a href="file:./choix_compte_insc.html" class="button">F.A.Q.</a>
+                </div>
+            </nav>
+        </div>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Contact</a></li>
+            </ol>
+        </nav>
+        <br>
+     </header>
+     <main>
+        <section class="form-section">
+            <h1 class="contact-title">Contactez-nous</h1>
+            
+            <div class="contact-info">
+                <h3 class="school-name">CESI Montpellier</h3>
+                <p><strong>Adresse :</strong>  Immeuble Le Quatrième Zone Aéroportuaire de Montpellier Méditerranée, 34130 Mauguio</p>
+                <p><strong>Téléphone :</strong> 06 12 34 56 78</p>
+                <p><strong>Email :</strong> <a href="mailto:contact@universite-funkytown.com">contact@universite-funkytown.com</a></p>
+                <p><strong>Horaires d'ouverture :</strong> Lundi - Vendredi, de 9h à 16h30</p>
+            </div>
+            
+            <h2 class="form-title">Formulaire de Contact</h2>
+            <form class="contact-form" action="/submit-form" method="POST">
+                <div class="form-group">
+                    <label for="name">Votre Nom :</label>
+                    <input type="text" id="name" name="name" required placeholder="Entrez votre nom">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Votre Email :</label>
+                    <input type="email" id="email" name="email" required placeholder="Entrez votre email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Objet :</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Entrez l'objet de votre message">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Votre Message :</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Écrivez votre message ici"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </section>
+    </main>
+    
+    
+<footer class="footer">
+    <div class="footer-content">
+        <img src="logo_chap.png" alt="Logo gauche" class="footer-logo left">
+        <img src="logo_text.png" alt="Logo droit" class="footer-logo right">
+        <div class="footer-links">
+            <a href="file:./coockies.html">Cookies</a>
+            <a href="file:./faq.html">F.A.Q</a>
+            <a href="file:./cgu.html">Conditions générales</a>
+            <a href="file:./protection.html">Politique de protection des données</a>
+        </div>
+    </div>
+</footer>
+</body> 
+</html>
