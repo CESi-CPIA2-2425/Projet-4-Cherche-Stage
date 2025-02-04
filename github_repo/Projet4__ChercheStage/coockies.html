@@ -12,8 +12,23 @@
         <img src="file:./logo.png" alt="Logo" style="width: 500px;"> 
     </header>
     <header>
+        <div class="navbar">
+            <!-- Bouton hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+            
+            <nav class="nav-items-container">
+                <ul class="main-menu" id="main-menu">
+                    <li class="menu-item"><a href="file:./main.HTML" class="top-level-entry active">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry">Contact</a></li>
+                </ul>
 
-        <nav class="navbar"><div class="navitems"><span class="navitem active">Accueil</a></span><span class="navitem"><a href="#">Contact</a></span></div><div class="right"><div class="navitems"><span class="navitem"><a href="file:./choix_compte_conn.html">Connexion</a></span><span class="navitem"><a class="button" href="file:./choix_compte_insc.html">S'inscrire</a></span></div></div></nav>
+                <!-- Liens de Connexion et S'inscrire à droite -->
+                <div class="auth-links">
+                    <a href="file:./choix_compte_conn.html" class="navitem">Connexion</a>
+                    <a href="file:./choix_compte_insc.html" class="button">S'inscrire</a>
+                </div>
+            </nav>
+        </div>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Accueil</a></li>

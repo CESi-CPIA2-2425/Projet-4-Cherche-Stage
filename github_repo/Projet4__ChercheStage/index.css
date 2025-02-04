@@ -1,6 +1,3 @@
-/* == OVERALL DEFINITIONS == */
-
-
 
 .text-center{ 
     text-align: center; 
@@ -42,9 +39,9 @@ h3{
 }
 
 a.button{
-	padding: .25rem .5rem;
+	padding: 4px 8px;
     background-color: white;
-    line-height: 1.1rem;
+    line-height: 18px;
     border-radius: 4px;
     color: #2368e1 !important;
     font-weight: 600;
@@ -54,11 +51,77 @@ a.button{
     float: right;
 }
 
-header{ 
-    background-color: #000000; 
-}
+header {
+    background-color: rgb(0, 0, 0);
+    
+    padding: 15px;
+  }
 
-/* Navbar */
+
+/* Navigation principale */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white; 
+  }
+  
+/* Menu principal */
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0
+  }
+  
+  .menu-item {
+    position: relative;
+    margin-right: 25px
+  }
+
+  .top-navigation-main {
+    background-color: #000000; 
+    padding: 15px 20px;
+    border-bottom: 1px solid #000000
+  }
+  
+  /* Liens du menu */
+  .top-level-entry {
+    color: white; 
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    display: inline-block
+  }
+  
+  .top-level-entry:hover {
+    color: #2368e1
+  }
+  
+  /* L'élément actif devient gris */
+  .top-level-entry.active {
+    color: #2368e1; 
+    border-radius: 5px
+  }
+  .auth-container .button.primary:hover {
+    text-decoration: underline
+  }
+
+  nav {
+    background: #000000;
+    padding: 10px;
+    text-align: left;
+  }
+
+
+
+
+
+
+
+
+
 header .navbar{
 	background-color: black;
 	color: #2368e1;
@@ -83,11 +146,15 @@ header .navitems{
 	display: inline-block;
 }
 
-header .navitems .navitem:not(:last-child)::after{
+.menu-item:not(:last-child)::after {
 	content: ' | ';
 	color: white;
 	font-weight: 100;
 }
+
+
+
+
 
 /* Breadcrumb */
 header nav ol.breadcrumb{
@@ -95,11 +162,11 @@ header nav ol.breadcrumb{
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 1rem;
+    padding: 12px 16px;
+    margin-bottom: 16px;
     list-style: none;
     background-color: #c0e2ff;
-    border-radius: .25rem;
+    border-radius: 4px;
 	font-size: 75%;
 }
 
@@ -114,8 +181,8 @@ header nav ol.breadcrumb li.breadcrumb-item a:hover{
 
 header nav ol.breadcrumb li.breadcrumb-item:not(:last-child)::after{
 	display: inline-block;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    padding-right: 8px;
+    padding-left: .8px;
     color: #173b7a;
     content: ">";
 }
@@ -189,7 +256,7 @@ footer{
     color: white;
     padding: 15px;
     margin-top: 25px;
-    font-size: 0.8em;
+    font-size: 1px;
 	font-style: italic;
 }
 
@@ -200,7 +267,7 @@ footer{
 
 .footer-links {
     color: yellow;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -227,158 +294,107 @@ footer{
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Media querries*/
-
-@media (min-width: 1281px){
-	ul.categories
-	{
-		list-style: none;
-	}
-	ul.categories li
-	{
-		display: inline;
-	}
-	ul.categories li:not(:last-child)::after
-	{
-		content: ' - ';	
-	}
-}
-
-@media (min-width: 1025px) and (max-width: 1280px){	
-}
-
-@media (min-width: 768px) and (max-width: 1024px){
-	.flex-container{ display: block; }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-  .flex-container{ display: block; }
-}
-
-@media (min-width: 481px) and (max-width: 767px){
-	.flex-container{ display: block; }
-	header .navbar .navitem
-	{
-		padding: 5px 0;
-		display: block;
-	}
-	header .navbar .navitem:not(:last-child)::after
-	{
-		content: '';
-	}
-	
-	header img{ width: 30%;}
-}
-
-@media (min-width: 320px) and (max-width: 480px){
-  .flex-container{ display: block; }
-}
-
-@media (max-width: 768px) {
-    .form-section {
-      width: 90%; 
-    }
-}
-  
-/*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Responsive*/
-/* Menu toggle button pour mobile */
+/* --- Styles de base pour le bouton hamburger --- */
 .menu-toggle {
-    display: none; 
-    background: #222;
+    display: none; /* Masqué par défaut */
+    background: #000000;
     color: white;
     font-size: 30px;
     border: none;
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
-  }
-  
-  /* Menu principal en colonne sur mobile */
-  @media (max-width: 768px) {
-    .main-menu {
-      display: none; 
-      flex-direction: column;
-      background-color: #222;
-      padding: 10px;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      border-radius: 10px;
-      z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #000000; /* Couleur plus foncée au survol */
+}
+
+/* --- Styles généraux de la navigation --- */
+.nav-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.menu-item {
+    position: relative;
+    margin-right: 25px;
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* --- Menu Burger Mobile --- */
+@media (max-width: 1050px) {
+    /* Afficher le bouton hamburger */
+    .menu-toggle {
+        display: block; 
     }
-  
-    .menu-item {
-      margin: 10px 0;
-      text-align: center;
+
+    /* Menu principal masqué par défaut */
+    .main-menu {
+        display: none; /* Masquer le menu par défaut */
+        flex-direction: column;
+        background-color: #000000;
+        padding: 15px;
+        position: absolute;
+        top: 300px; /* Positionner sous le nav et entre Connexion et S'inscrire */
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+        z-index: 10;
+        transition: transform 0.3s ease; /* Animation pour l'apparition du menu */
+        transform: translateY(-20px); /* Initialement décalé */
     }
   
     /* Afficher le menu lorsque le bouton est activé */
     .main-menu.active {
-      display: flex;
+        display: flex;
+        transform: translateY(0); /* Remettre le menu à sa place */
     }
-  
-    /* Afficher le bouton menu sur mobile */
-    .menu-toggle {
-      display: block;
-    }
-  }
-  
-  /* Le menu par défaut pour les écrans plus grands */
-  @media (min-width: 769px) {
-    .menu-toggle {
-      display: none; 
-    }
-  }
-  
-  .hamburger-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #222;
-    width: 250px;
-    height: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    z-index: 100;
-  }
-  
-  .hamburger-menu .menu-item {
-    margin: 20px 0;
-    color: white;
-  }
-  
-  .hamburger-menu .menu-item a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  #close-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-  }
-  
-  /* Style de l'icône hamburger */
-  .menu-icon {
-    font-size: 30px;
-    cursor: pointer;
-    color: #222;
-    background-color: white;
-    padding: 10px;
-    border-radius: 50%;
-  }
-  
-  /* Pour afficher le menu lorsque l'icône est cliquée */
-  .hamburger-menu.active {
-    display: flex;
-  }
 
-  
+    .menu-item {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    /* Lien de Connexion et S'inscrire en bas du menu */
+    .auth-links {
+        margin-top: 15px; /* Ajouter un espace au-dessus */
+        justify-content: center; /* Centrer les liens */
+    }
+}
+
+/* --- Styles pour les écrans plus larges --- */
+@media (min-width: 1051px) {
+    .menu-toggle {
+        display: none; /* Masquer le bouton hamburger sur les grands écrans */
+    }
+}
+
+
+
+
+
+
 
