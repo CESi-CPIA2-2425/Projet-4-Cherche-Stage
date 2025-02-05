@@ -1,8 +1,3 @@
-/* == OVERALL DEFINITIONS == */
-
-html{
-	font-size: calc(12px + 0.390625vw);
-}
 
 .text-center{ 
     text-align: center; 
@@ -15,12 +10,7 @@ html{
 }
 
 h1{
-	font-size: 1.8rem;
-    color: rgb(0, 0, 0);
-}
-
-h2{
-	font-size: 1.5rem;
+    color: white;
 }
 
 h2.title{ 
@@ -33,7 +23,6 @@ h3{
 
 .small
 {
-	font-size: 75%;
     color: #ffffff
 }
 
@@ -125,6 +114,14 @@ header {
     text-align: left;
   }
 
+
+
+
+
+
+
+
+
 header .navbar{
 	background-color: black;
 	color: #2368e1;
@@ -155,17 +152,21 @@ header .navitems{
 	font-weight: 100;
 }
 
+
+
+
+
 /* Breadcrumb */
 header nav ol.breadcrumb{
 	margin: 10px 5px;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 1rem;
+    padding: 12px 16px;
+    margin-bottom: 16px;
     list-style: none;
-    background-color: #e9ecef;
-    border-radius: .25rem;
+    background-color: #c0e2ff;
+    border-radius: 4px;
 	font-size: 75%;
 }
 
@@ -180,130 +181,166 @@ header nav ol.breadcrumb li.breadcrumb-item a:hover{
 
 header nav ol.breadcrumb li.breadcrumb-item:not(:last-child)::after{
 	display: inline-block;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    color: #6c757d;
+    padding-right: 8px;
+    padding-left: .8px;
+    color: #173b7a;
     content: ">";
 }
 
 header nav.breadcrumb ol li.breadcrumb-item.active{
-	color: #6c757d;
+	color: #c0e2ff;
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Body*/
 
 body{
-	background-color: #f0f6fd;
+	background-color: #000000;
 	margin: 0;
     font-family: arial;
-    min-height: 200vh;
 }
 
+button{
+	text-transform : uppercase;
+	border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 300ms ease 0s, color 300ms ease 0s;
+    cursor: pointer;
+    -webkit-box-align: center;
+    align-items: center;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 8px 15px;
+}
 
-
+button {
+    text-transform: uppercase;
+    background-color: #2368e1;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
   
-main{
-	padding: 15px;
-}
-/* Centrer les box */
-.container {
-    width: 80vw;
-    padding: 0;
-    margin: 0;
-}
-
-.box {
-     /* Fait en sorte que chaque box prenne toute la largeur */
-    background-color: rgb(184, 184, 184);
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box; /* Permet de positionner les boutons */
-    height: 700px;
-}
-
-
-.container2 {
-    width: 80vw;
-    padding: 0;
-    margin: 0;
-    min-height: 100vh; /* Garantie que le container prend au moins toute la hauteur de la fenêtre */
+/* Conteneur pour les boutons (centrer et aligner côte à côte) */
+.button-container {
     display: flex;
-    flex-direction: column;
-}
-
-.box2 {
-    width: 100vw; /* Fait en sorte que chaque box prenne toute la largeur */
-    background:  url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    color: white;
-    padding: 40px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box; /* Permet de positionner les boutons */
-    flex-grow: 1;
-    
-}
-
-
-.box3{
-    background-color: rgb(184, 184, 184);
-}
-
-.form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input, select, textarea {
+    justify-content: center; /* Centrer les boutons horizontalement */
+    gap: 20px; /* Espacement entre les boutons */
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+    margin-top: 20px; /* Espacement avec le contenu précédent */
+}
+  
+/* Boutons - Style pour les boutons "Postuler" et "Réinitialiser" */
+button {
+    background-color: #2368e1; /* Bleu spécifique */
+    color: white; /* Texte en blanc */
+    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 1em;
-  }
-  
-  textarea {
-    height: 80px;
-  }
-  
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 150px; /* Largeur fixe pour les boutons */
+}
+/* Section pour les offres d'emploi */
+.job-listings {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Arrière-plan gris clair */
+}
 
+/* Titre de la section des offres */
+.job-listings h2 {
+    text-align: center; /* Centrage du titre */
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
 
+/* Grille des offres */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Disposition automatique */
+    gap: 20px; /* Espacement entre les cartes */
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+/* Carte individuelle d'une offre */
+.job-card {
+    background-color: #fff;
+    border: 1px solid #ddd; /* Bordure légère */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    text-align: center;
+}
 
+/* Titre de l'offre d'emploi */
+.job-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
 
+/* Bouton de lien vers l'offre */
+.job-link {
+    background-color: #007BFF; /* Fond bleu */
+    color: #fff; /* Texte blanc */
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
 
+/* Section de présentation sous les offres */
+.hero {
+    background-color: #007BFF; /* Fond bleu */
+    color: #fff; /* Texte blanc */
+    padding: 60px 20px;
+    text-align: center;
+}
 
+/* Contenu de la section de présentation */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-  
+/* Titre principal de la section */
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
 
+/* Paragraphe de la section */
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
 
-
-/*body*/
+/* Bouton de la section */
+.hero button {
+    background-color: #fff; /* Fond blanc */
+    color: #007BFF; /* Texte bleu */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
 
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
 
 footer{
-	background-color: rgb(0, 0, 0);
+	background-color: black;
     color: white;
-    padding: 25;
+    padding: 15px;
     margin-top: 25px;
-    font-size: 0.8em;
+    font-size: 1px;
 	font-style: italic;
-    bottom: 0;
-    left: 0;
-    width: 100%;
 }
 
 .footer-logo {
@@ -313,7 +350,7 @@ footer{
 
 .footer-links {
     color: yellow;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -437,3 +474,10 @@ footer{
         display: none; /* Masquer le bouton hamburger sur les grands écrans */
     }
 }
+
+
+
+
+
+
+
