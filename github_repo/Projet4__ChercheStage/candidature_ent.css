@@ -106,7 +106,7 @@ header nav ol.breadcrumb{
     padding: .75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #e9ecef;
+    background-color: #C0E2FF;
     border-radius: .25rem;
 	font-size: 75%;
 }
@@ -178,8 +178,7 @@ footer{
     padding: 25;
     margin-top: 25px;
     font-size: 0.8em;
-	font-style: italic;
-    position: fixed;
+	  font-style: italic;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -218,57 +217,181 @@ footer{
     margin-left: 20px;
 }
 
+.rounded-social-buttons {
+    text-align: center;
+  }
+  
+  .rounded-social-buttons .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: #fefefe;
+    font-size: 1.5625rem;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 1.6875rem;
+    transition: all 0.5s ease;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  
+  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-tiktok, .fa-youtube, .fa-instagram {
+    font-size: 25px;
+  }
+
+  .tiktok {
+    font-size: 25px !important;
+
+  }
+  
+  .rounded-social-buttons .social-button.twitter {
+    background: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
+    color: #000000;
+    background: #000000;
+    border-color: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.tiktok {
+    background: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.tiktok:hover, .rounded-social-buttons .social-button.tiktok:focus {
+    color: #000000;
+    background: #000000;
+    border-color: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.youtube {
+    background: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.youtube:hover, .rounded-social-buttons .social-button.youtube:focus {
+    color: #000000;
+    background: #000000;
+    border-color: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.instagram {
+    background: #000000;
+  }
+  
+  .rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+    color: #000000;
+    background: #000000;
+    border-color: #000000;
+  }
 /*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Media querries*/
-
-@media (min-width: 1281px){
-	ul.categories
-	{
-		list-style: none;
-	}
-	ul.categories li
-	{
-		display: inline;
-	}
-	ul.categories li:not(:last-child)::after
-	{
-		content: ' - ';	
-	}
+/* --- Styles de base pour le bouton hamburger --- */
+.menu-toggle {
+  display: none; /* Masqué par défaut */
+  background: #000000;
+  color: white;
+  font-size: 30px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-@media (min-width: 1025px) and (max-width: 1280px){	
+.menu-toggle:hover {
+  background-color: #000000; /* Couleur plus foncée au survol */
 }
 
-@media (min-width: 768px) and (max-width: 1024px){
-	.flex-container{ display: block; }
+/* --- Styles généraux de la navigation --- */
+.nav-items-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-  .flex-container{ display: block; }
+.main-menu {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
 }
 
-@media (min-width: 481px) and (max-width: 767px){
-	.flex-container{ display: block; }
-	header .navbar .navitem
-	{
-		padding: 5px 0;
-		display: block;
-	}
-	header .navbar .navitem:not(:last-child)::after
-	{
-		content: '';
-	}
-	
-	header img{ width: 30%;}
+.menu-item {
+  position: relative;
+  margin-right: 25px;
 }
 
-@media (min-width: 320px) and (max-width: 480px){
-  .flex-container{ display: block; }
+.auth-links {
+  display: flex;
+  gap: 15px;
 }
 
-@media (max-width: 768px) {
-    .form-section {
-      width: 90%; 
-    }
+.auth-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
 }
+
+
+/* --- Menu Burger Mobile --- */
+@media (max-width: 1050px) {
+  /* Afficher le bouton hamburger */
+  .menu-toggle {
+      display: block; 
+  }
+
+  /* Menu principal masqué par défaut */
+  .main-menu {
+      display: none; /* Masquer le menu par défaut */
+      flex-direction: column;
+      background-color: #000000;
+      padding: 15px;
+      position: absolute;
+      top: 300px; /* Positionner sous le nav et entre Connexion et S'inscrire */
+      left: 0;
+      right: 0;
+      border-radius: 10px;
+      z-index: 10;
+      transition: transform 0.3s ease; /* Animation pour l'apparition du menu */
+      transform: translateY(-20px); /* Initialement décalé */
+  }
+
+  /* Afficher le menu lorsque le bouton est activé */
+  .main-menu.active {
+      display: flex;
+      transform: translateY(0); /* Remettre le menu à sa place */
+  }
+
+  .menu-item {
+      margin: 10px 0;
+      text-align: center;
+      font-size: 18px;
+  }
+
+  /* Lien de Connexion et S'inscrire en bas du menu */
+  .auth-links {
+      margin-top: 15px; /* Ajouter un espace au-dessus */
+      justify-content: center; /* Centrer les liens */
+  }
+}
+
+/* --- Styles pour les écrans plus larges --- */
+@media (min-width: 1051px) {
+  .menu-toggle {
+      display: none; /* Masquer le bouton hamburger sur les grands écrans */
+  }
+}
+
   
