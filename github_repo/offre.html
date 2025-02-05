@@ -2,46 +2,43 @@
 <html lang="fr"> 
    <head> 
       <meta charset="utf-8">
-	  <meta name="description" content="Postuler à une offre de stage">
-      <title>Postuler à une offre - Lebonplan</title>
-	  <link rel="stylesheet" href="Créer_offre.css">
+      <meta name="description" content="Postuler à une offre de stage">
+      <title>Lebonplan</title>
+      <link rel="stylesheet" href="offre.css">
       <link rel="icon" href="./logo_chap.png">
-   </head> 
-   <body>
+    </head> 
+    <body>
     <header style="text-align: center; padding: 20px;">
-        <h1 style="color: white; font-size: 2.5rem; margin: 0;">LeBonplan</h1>
-      </header>
-      <header>
-        <nav class="navbar">
-            <div class="navitems">
-                <span class="navitem active">
-                    <a href="#">Accueil</a>
-                </span>
-                <span class="navitem">
-                    <a href="#">Contact</a>
-                </span>
-                <span class="navitem">
-                    <a href="#">Entreprise</a>
-                </span>
-                <span class="navitem">
-                    <a href="#">Offre</a>
-                </span>
-            </div>
-            <div class="right">   
-                <div class="navitems">
-                    <span class="navitem">
-                        <a class="button" href="file:./choix_compte_insc.html">Déconnexion</a>
-                    </span>
+        <img src="file:./logo.png" alt="Logo" style="width: 500px;"> 
+    </header>
+    <header>
+        <div class="navbar">
+            <!-- Bouton hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+            <nav class="nav-items-container">
+                <ul class="main-menu" id="main-menu">
+                    <li class="menu-item"><a href="file:./main.HTML" class="top-level-entry active">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry">Contact</a></li>
+                    <li class="menu-item"><a href="#" class="top-level-entry">Entreprise</a></li>
+                    <li class="menu-item"><a href="#" class="top-level-entry">Offre</a></li>
+                </ul>
+
+                <!-- Liens de Connexion et S'inscrire à droite -->
+                <div class="auth-links">
+                    <a href="#" class="button">Déconnexion</a>
                 </div>
-            </div>
+            </nav>
+        </div>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Offre</a></li>
+
+            </ol>
         </nav>
-		<nav>
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="#">Offre ></a></li>
-			</ol>
-		</nav><a href="#" class="create-offer-btn" >+ Créer une offre</a>tex
-    
-      </header>
+        <br>
+     </header>
+      <a href="creer_offre.html" class="create-offer-btn" >+ Créer une offre</a>
       <main>
           <h2>Vos offres</h2>
           
@@ -61,16 +58,27 @@
           </div>
       </main>
       <footer class="footer">
-          <div class="footer-content">
-              <img src="./logo_chap.png" alt="Logo gauche" class="footer-logo left">
-              <img src="logo_text.png" alt="Logo droit" class="footer-logo right">
-              <div class="footer-links">
-                  <a href="#">Cookies</a>
-                  <a href="#">F.A.Q</a>
-                  <a href="#">Conditions générales</a>
-                  <a href="#">Politique de protection des données</a>
-              </div>
-          </div>
-      </footer>
-   </body> 
-</html>
+        <div class="footer-content">
+            <img src="logo_chap.png" alt="Logo gauche" class="footer-logo left">
+            <img src="logo_text.png" alt="Logo droit" class="footer-logo right">
+            <div class="footer-links">
+                <a href="file:./coockies.html">Cookies</a>
+                <a href="file:./faq.html">F.A.Q</a>
+                <a href="file:./cgu.html">Conditions générales</a>
+                <a href="file:./protection.html">Politique de protection des données</a>
+            </div>
+        </div>
+    </footer>
+    </body> 
+    <script>
+        // Cibler le bouton hamburger et le menu de gauche
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
+    
+    // Ajouter un événement au clic pour afficher/masquer le menu
+    menuToggle.addEventListener('click', function() {
+      mainMenu.classList.toggle('active'); // Ajouter ou retirer la classe 'active' pour ouvrir/fermer
+    });
+    
+      </script>
+    </html>

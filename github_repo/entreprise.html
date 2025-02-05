@@ -1,46 +1,45 @@
 <!doctype html> 
 <html lang="fr"> 
-<head> 
-    <meta charset="utf-8">
-    <meta name="description" content="Postuler à une offre de stage">
-    <title>Postuler à une offre - LeBonplan</title>
-    <link rel="stylesheet" href="entreprise.css">
-</head> 
-<body>
-    <!-- En-tête -->
+   <head> 
+      <meta charset="utf-8">
+      <meta name="description" content="Postuler à une offre de stage">
+      <title>Lebonplan</title>
+      <link rel="stylesheet" href="entreprise.css">
+      <link rel="icon" href="./logo_chap.png">
+    </head> 
+    <body>
     <header style="text-align: center; padding: 20px;">
-        <h1 style="color: white; font-size: 2.5rem; margin: 0;">LeBonplan</h1>
+        <img src="file:./logo.png" alt="Logo" style="width: 500px;"> 
     </header>
     <header>
-        <nav class="navbar">
-            <div class="navitems">
-                <span class="navitem active">
-                    <a href="#" style="color: white;">Accueil</a>
-                </span>
-                <span class="navitem">
-                    <a href="#">Contact</a>
-                </span>
-                <span class="navitem">
-                    <a href="#">Entreprise</a>
-                </span>
-                <span class="navitem">
-                    <a href="file:./offre.html">Offre</a>
-                </span>
-            </div>
-            <div class="right">   
-                <div class="navitems">
-                    <span class="navitem">
-                        <a class="button" href="file:./choix_compte_insc.html">Déconnexion</a>
-                    </span>
+        <div class="navbar">
+            <!-- Bouton hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+
+            <nav class="nav-items-container">
+                <ul class="main-menu" id="main-menu">
+                    <li class="menu-item"><a href="file:./main.HTML" class="top-level-entry ">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry">Contact</a></li>
+                    <li class="menu-item"><a href="file:./contact.HTML" class="top-level-entry active">Entreprise</a></li>
+                    <li class="menu-item"><a href="file:./offre.html" class="top-level-entry">Offre</a></li>
+
+
+                </ul>
+
+                <!-- Liens de Connexion et S'inscrire à droite -->
+                <div class="auth-links">
+                    <a href="file:./choix_compte_insc.html" class="button">Déconnexion</a>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Entreprise ></a></li>
+                <li class="breadcrumb-item"><a href="#">Entreprise</a></li>
+
             </ol>
         </nav>
-    </header>
+        <br>
+     </header>
 
     <!-- Contenu principal -->
     <main class="content">

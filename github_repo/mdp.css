@@ -1,6 +1,3 @@
-html{
-	font-size: calc(12px + 0.390625vw);
-}
 
 .text-center{ 
     text-align: center; 
@@ -13,12 +10,7 @@ html{
 }
 
 h1{
-	font-size: 1.8rem;
     color: white;
-}
-
-h2{
-	font-size: 1.5rem;
 }
 
 h2.title{ 
@@ -31,7 +23,6 @@ h3{
 
 .small
 {
-	font-size: 75%;
     color: #ffffff
 }
 
@@ -43,12 +34,12 @@ h3{
 /*header*/
 
 .subtitle span.item:not(:last-child)::after{
-    content: ' | ';
-    font-weight: 100;
+	content: ' | ';
+	font-weight: 100;
 }
 
 a.button{
-    padding: 4px 8px;
+	padding: 4px 8px;
     background-color: white;
     line-height: 18px;
     border-radius: 4px;
@@ -62,12 +53,12 @@ a.button{
 
 header {
     background-color: rgb(0, 0, 0);
-
+    
     padding: 15px;
   }
 
 
-/* Navigation principale /
+/* Navigation principale */
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -75,15 +66,15 @@ header {
     font-size: 14px;
     color: white; 
   }
-
-/ Menu principal /
+  
+/* Menu principal */
 .main-menu {
     display: flex;
     list-style-type: none;
     padding-left: 0;
     margin: 0
   }
-
+  
   .menu-item {
     position: relative;
     margin-right: 25px
@@ -94,8 +85,8 @@ header {
     padding: 15px 20px;
     border-bottom: 1px solid #000000
   }
-
-  / Liens du menu /
+  
+  /* Liens du menu */
   .top-level-entry {
     color: white; 
     text-decoration: none;
@@ -103,12 +94,12 @@ header {
     padding: 10px;
     display: inline-block
   }
-
+  
   .top-level-entry:hover {
     color: #2368e1
   }
-
-  / L'élément actif devient gris */
+  
+  /* L'élément actif devient gris */
   .top-level-entry.active {
     color: #2368e1; 
     border-radius: 5px
@@ -123,10 +114,18 @@ header {
     text-align: left;
   }
 
+
+
+
+
+
+
+
+
 header .navbar{
-    background-color: black;
-    color: #2368e1;
-    padding: 10px 15px;
+	background-color: black;
+	color: #2368e1;
+	padding: 10px 15px;
 }
 
 header .navbar span.active{ 
@@ -135,37 +134,42 @@ header .navbar span.active{
 }
 
 header .navbar a{
-    color: white;
-    text-decoration: none;
+	color: white;
+	text-decoration: none;
 }
 
 header .navbar a:hover{
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 header .navitems{
-    display: inline-block;
+	display: inline-block;
 }
 
 .menu-item:not(:last-child)::after {
-    content: ' | ';
-    color: white;
-    font-weight: 100;
+	content: ' | ';
+	color: white;
+	font-weight: 100;
 }
 
+
+
+
+
 /* Breadcrumb */
-header nav ol.breadcrumb{
-	margin: 0px 0px;
+
+
+
+header nav ol.breadcrumb {
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: .75rem 1rem;
-    margin-bottom: 0rem;
     list-style: none;
-    background-color: #c0e2ff;
-    border-radius: 0rem;
-	font-size: 100%;
+    background-color: #c0e2ff; /* Couleur de la barre bleue */
+    padding: 12px 16px;
+    margin: 0; /* Supprime toute marge */
+    width: 100%; /* Étend sur toute la largeur */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
 }
+
 
 header nav ol.breadcrumb li.breadcrumb-item a{
 	color: #2368e1;
@@ -178,96 +182,23 @@ header nav ol.breadcrumb li.breadcrumb-item a:hover{
 
 header nav ol.breadcrumb li.breadcrumb-item:not(:last-child)::after{
 	display: inline-block;
-    padding-right: .5rem;
-    padding-left: .5rem;
-    color: #6c757d;
+    padding-right: 8px;
+    padding-left: .8px;
+    color: #2368e1;
     content: ">";
 }
 
 header nav.breadcrumb ol li.breadcrumb-item.active{
-	color: #6c757d;
+	color: #fff2c0;
 }
 
-/* Main Content */
-
+/*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Body*/
 
 body{
+	background-color: #000000;
 	margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #e6f2ff;
-    font-family: Arial, sans-serif;
-}
-* {
-    box-sizing: border-box;
-}
-main{
-	padding: 15px;
-}
-
-.wrapper{
-	max-width: 1090px;
-	margin: 0 auto;
-	background-color: rgb(0, 255, 60);
-	border: 1px solid grey;
-	padding: 15px;
-}
-
-
-/* Side-by-side elements using Flex method*/
-.flex-container{
-	display: flex;
-}
-
-.flex-child{
-	flex: 1;
-}
-
-.flex-child:not(:last-child){
-	padding-right: 20px;	
-}
-
-/* Forms */
-label{
-	font-weight: 900;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #ffffff;
-    
-}
-
-input, select, textarea{
-	border: 0;
-    padding: 8px 5px;
-    margin-top: 5px;
-    border-radius: 8px;
-    color: #000000;
-}
-
-/* Cibler directement les labels de checkbox et radio */
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  color: white !important; 
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  color: white !important;
-  background-color: transparent; 
-}
-
-form {
-    color: white !important;  
-}
-
-.small {
-    color: white !important; 
-}
-
-textarea{
-	resize: none;
+    font-family: arial;
 }
 
 button{
@@ -284,103 +215,6 @@ button{
     padding: 8px 15px;
 }
 
-button[type="reset"]{
-	background-color: #2368e1;
-	color: rgb(255, 255, 255);
-}
-
-button[type="reset"]:hover{
-	background-color: #2368e1;
-}
-
-button[type="submit"]{
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	border: 1px solid transparent;
-}
-
-button[type="submit"]:hover{
-	background-color: #2368e1;
-}
-
-input[type="file"] {
-    display: none;
-    
-}
-
-.file-upload{
-    display: inline-block;
-	transition: background-color 300ms ease 0s, color 300ms ease 0s;
-	padding: 8px 15px;
-    margin-top: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	font-size: 0.8em;
-	border: 1px solid transparent;
-}
-
-.file-upload:hover{
-	background-color:#2368e1;
-}
-
-input[type="radio"]{
-	accent-color: #2368e1;
-}
-
-.form-section {
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 65%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 2;
-}
-  
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1; 
-}
-
-.form-section-flou{
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 2;
-}
-
-.form-section-flou::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1; 
-}
-
-.form-section form {
-    z-index: 2;
-    position: relative;
-}
-
 button {
     text-transform: uppercase;
     background-color: #2368e1;
@@ -392,25 +226,6 @@ button {
     cursor: pointer;
 }
   
-button[type="reset"] {
-    background-color: #2368e1;
-    color: #ffffff;
-}
-  
-/* Styles for tags */
-.tag {
-    padding: .25rem .5rem;
-    background-color: white;
-    border: 1px solid black;
-    font-size: .75rem;
-    line-height: 1.1rem;
-    border-radius: 4px;
-}
-  
-.tag:not(:last-child) {
-    margin-right: 5px;
-}
-
 /* Conteneur pour les boutons (centrer et aligner côte à côte) */
 .button-container {
     display: flex;
@@ -431,81 +246,59 @@ button {
     text-transform: uppercase;
     width: 150px; /* Largeur fixe pour les boutons */
 }
-  
-button[type="reset"], button[type="submit"] {
-    /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
-    width: 150px;
-}
-
-
-
-.content {
-    background-color: #e6f2ff;
-    color: black;
-    padding: 40px;
-    border-radius: 0;
-    width: 100%;
-}
-
-/* Company Section */
-.company {
-    background-color: white;
-    padding: 15px;
+main {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.company-logo {
-    width: 100px;
-    height: auto;
-}
-
-.company-info h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-}
-
-.offer, .profile {
-    background-color: #00BFFF;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px); /* Ajuste selon la hauteur du header et du footer */
+    background-color: #e6f2ff; /* Couleur de fond */
+  }
+  
+  .password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les champs */
+  }
+  
+  .password-form input {
+    width: 278px; /* Largeur des champs */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #d9d9d9; /* Couleur de fond des champs */
+    text-align: center; /* Centre le texte */
+  }
+  
+  .password-form button {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
     color: white;
-    padding: 8px 12px;
+    background-color: #2368e1; /* Couleur bleu */
     border: none;
     border-radius: 5px;
-    margin-right: 10px;
     cursor: pointer;
-}
+    text-align: center;
+  }
+  
+  .password-form button:hover {
+    background-color: #1d5dbf; /* Couleur légèrement plus foncée au survol */
+  }
+  
+  
 
-.offer:hover, .profile:hover {
-    background-color: #007BFF;
-}
 
-/* Job Offer Section */
-.job-offer {
-    background-color: white;
-    padding: 15px;
-    display: flex;
-    gap: 15px;
-}
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+/*Footer*/
 
-.hiring-img {
-    width: 100px;
-    height: auto;
-}
-
-.job-info h3 {
-    margin-top: 0;
-    font-size: 1.3rem;
-    color: #333;
-}
-
-/* Footer */
 footer{
 	background-color: black;
     color: white;
     padding: 15px;
     margin-top: 25px;
-    font-size: 0.8em;
+    font-size: 1px;
 	font-style: italic;
 }
 
@@ -516,7 +309,7 @@ footer{
 
 .footer-links {
     color: yellow;
-    font-size: 1em;
+    font-size: 16px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -543,8 +336,7 @@ footer{
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Media querries*/
-
+/* --- Styles de base pour le bouton hamburger --- */
 .menu-toggle {
     display: none; /* Masqué par défaut */
     background: #000000;
@@ -641,3 +433,9 @@ footer{
         display: none; /* Masquer le bouton hamburger sur les grands écrans */
     }
 }
+
+
+
+
+
+
