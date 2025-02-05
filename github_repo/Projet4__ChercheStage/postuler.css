@@ -265,13 +265,19 @@ main{
   }
   
   input, select, textarea {
+    width: 98.5%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
   }
-  
   textarea {
     height: 80px;
   }

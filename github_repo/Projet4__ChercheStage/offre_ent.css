@@ -17,10 +17,13 @@ html{
 h1{
 	font-size: 1.8rem;
     color: white;
+    text-align: center;
 }
 
 h2{
-	font-size: 1.5rem;
+    color: black; /* Couleur du texte */
+    text-align: left;
+    font-size: 1.5rem;
 }
 
 h2.title{ 
@@ -37,34 +40,86 @@ h3{
     color: #ffffff
 }
 
-.small a {
-    color: white !important; 
-    text-decoration: none;    
-}
-
-.small a:hover {
-    text-decoration: underline; 
-}
-
 .grey{ 
     color: #ffffff; 
 }
  
-a{
-	color: #ffffff;
-    text-decoration: none;
-}
-
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*header*/
+.create-offer-btn {
+    display: inline-block;
+    background-color: #2368e1;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 0px;
+    font-size: 0.9rem;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.offer-container {
+    background-color: white;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: left; /* Texte aligné à gauche */
+    width: 100%; /* Prend toute la largeur disponible */
+    box-sizing: border-box;
+}
+
+.offer-container h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: black;
+    text-align: left;
+}
+
+.offer-container p {
+    margin: 5px 0;
+    background-color: #d9d9d9;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    text-align: left;
+    width: auto;
+}
+
+.offer-container button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.btn-delete {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.btn-stats {
+    background-color: #ccc;
+    color: black;
+}
+
+.btn-view {
+    background-color: #2368e1;
+    color: white;
+}
+
+
+
 
 .subtitle span.item:not(:last-child)::after{
-	content: ' | ';
-	font-weight: 100;
+    content: ' | ';
+    font-weight: 100;
 }
 
 a.button{
-	padding: 4px 8px;
+    padding: 4px 8px;
     background-color: white;
     line-height: 18px;
     border-radius: 4px;
@@ -78,12 +133,11 @@ a.button{
 
 header {
     background-color: rgb(0, 0, 0);
-    
-    padding: 15px;
+    padding: 0px;
   }
 
 
-/* Navigation principale */
+/*Navigation principale*/
 .main-nav {
     display: flex;
     justify-content: space-between;
@@ -91,15 +145,15 @@ header {
     font-size: 14px;
     color: white; 
   }
-  
-/* Menu principal */
+
+/*Menu principal*/
 .main-menu {
     display: flex;
     list-style-type: none;
     padding-left: 0;
     margin: 0
   }
-  
+
   .menu-item {
     position: relative;
     margin-right: 25px
@@ -110,8 +164,8 @@ header {
     padding: 15px 20px;
     border-bottom: 1px solid #000000
   }
-  
-  /* Liens du menu */
+
+  /*Liens du menu*/
   .top-level-entry {
     color: white; 
     text-decoration: none;
@@ -119,16 +173,26 @@ header {
     padding: 10px;
     display: inline-block
   }
-  
+
   .top-level-entry:hover {
     color: #2368e1
   }
-  
-  /* L'élément actif devient gris */
+
+  /*L'élément actif devient gris*/
   .top-level-entry.active {
     color: #2368e1; 
     border-radius: 5px
   }
+  
+  header .auth-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Aligne tout à droite */
+}
+
+  
+  
   .auth-container .button.primary:hover {
     text-decoration: underline
   }
@@ -140,9 +204,9 @@ header {
   }
 
 header .navbar{
-	background-color: black;
-	color: #2368e1;
-	padding: 10px 15px;
+    background-color: black;
+    color: #2368e1;
+    padding: 10px 15px;
 }
 
 header .navbar span.active{ 
@@ -151,37 +215,36 @@ header .navbar span.active{
 }
 
 header .navbar a{
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 header .navbar a:hover{
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 header .navitems{
-	display: inline-block;
+    display: inline-block;
 }
 
 .menu-item:not(:last-child)::after {
-	content: ' | ';
-	color: white;
-	font-weight: 100;
+    content: ' | ';
+    color: white;
+    font-weight: 100;
 }
-
 
 /* Breadcrumb */
 header nav ol.breadcrumb{
-	margin: 10px 5px;
+	margin: 0px 0px;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     padding: .75rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     list-style: none;
     background-color: #c0e2ff;
-    border-radius: .25rem;
-	font-size: 75%;
+    border-radius: 0rem;
+	font-size: 100%;
 }
 
 header nav ol.breadcrumb li.breadcrumb-item a{
@@ -197,7 +260,7 @@ header nav ol.breadcrumb li.breadcrumb-item:not(:last-child)::after{
 	display: inline-block;
     padding-right: .5rem;
     padding-left: .5rem;
-    color: #6c757d;
+    color: #23649c;
     content: ">";
 }
 
@@ -209,13 +272,22 @@ header nav.breadcrumb ol li.breadcrumb-item.active{
 /*Body*/
 
 body{
-	background-color: #000000;
-	margin: 0;
+	background-color: #e6f2ff;
     font-family: arial;
+    margin: 0; /* Supprime toutes les marges par défaut */
+    padding: 0; /* Supprime tous les paddings par défaut */
+    overflow-x: hidden;
 }
 
-main{
-	padding: 15px;
+main {
+    background-color: 
+    #e6f2ff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Ajuste la largeur */
+    margin: 0; /* Supprime l'alignement automatique */
+    margin-left: 10px; /* Positionne le bloc à gauche */
+    text-align: left; 
 }
 
 .wrapper{
@@ -224,6 +296,10 @@ main{
 	background-color: rgb(0, 255, 60);
 	border: 1px solid grey;
 	padding: 15px;
+    margin: 0 auto; /* Centrer horizontalement */
+    max-width: 100%; /* Assurer qu'il n'y a pas de débordement */
+    padding: 0; /* Supprimer les espaces internes */
+    box-sizing: border-box;
 }
 
 
@@ -242,19 +318,19 @@ main{
 
 /* Forms */
 label{
-	font-weight: 900;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #ffffff;
+	display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
     
 }
 
 input, select, textarea{
-	border: 0;
-    padding: 8px 5px;
-    margin-top: 5px;
-    border-radius: 8px;
-    color: #000000;
+    width: 100%; /* Champs qui occupent toute la largeur */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 /* Cibler directement les labels de checkbox et radio */
@@ -279,6 +355,7 @@ form {
 
 textarea{
 	resize: none;
+    height: 80px;
 }
 
 button{
@@ -293,6 +370,7 @@ button{
     -webkit-box-pack: center;
     justify-content: center;
     padding: 8px 15px;
+    
 }
 
 button[type="reset"]{
@@ -306,7 +384,7 @@ button[type="reset"]:hover{
 
 button[type="submit"]{
 	background-color: #2368e1;
-	color: white!important;
+	color: white;
 	font-weight: 600;
 	border: 1px solid transparent;
 }
@@ -448,33 +526,27 @@ button[type="reset"], button[type="submit"] {
     width: 150px;
 }
 
-/* === Message d'erreur === */
-.error {
-    color: #ffed00;  /* Couleur des messages d'erreur en jaune */
-}
-
-/* Changer la couleur du contour (outline) lorsqu'un champ est focus */
-input:focus, select:focus, textarea:focus {
-    outline: 2px solid #ffed00;  /* Couleur jaune pour le contour */
-    border-color: #ffed00; /* Couleur jaune pour la bordure */
-}
-
-/* Optionnel : Changer la couleur de la bordure pour les champs invalides lorsqu'ils sont en focus */
-input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
-    border-color: #ffed00;  /* Jaune pour la bordure des champs invalides */
-    outline: none; /* Éviter l'outline par défaut du navigateur */
-}
-
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
 
 footer{
-	background-color: black;
-    color: white;
-    padding: 15px;
-    margin-top: 25px;
-    font-size: 0.8em;
-	font-style: italic;
+	background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    text-align: center;
+    padding: 5px 0; /* Réduction de la hauteur (padding) */
+    font-size: 0.8rem; /* Taille du texte légèrement réduite */
+    margin-top: 130px;
+}
+.footer-logo.right {
+    float: right; /* Aligne le logo droit tout à droite */
+    margin-right: 10px; /* Ajoute un léger espace avec le bord */
+    height: 50px; /* Ajuste la hauteur si nécessaire */
+}
+
+.footer-logo.left {
+    float: left; /* Aligne le logo gauche tout à gauche */
+    margin-left: 10px; /* Ajoute un léger espace avec le bord */
+    height: 50px; /* Ajuste la hauteur si nécessaire */
 }
 
 .footer-logo {
@@ -511,7 +583,8 @@ footer{
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
-/* --- Styles de base pour le bouton hamburger --- */
+/*Media querries*/
+
 .menu-toggle {
     display: none; /* Masqué par défaut */
     background: #000000;
@@ -608,3 +681,4 @@ footer{
         display: none; /* Masquer le bouton hamburger sur les grands écrans */
     }
 }
+  

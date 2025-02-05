@@ -299,7 +299,7 @@ button[type="reset"]:hover{
 
 button[type="submit"]{
 	background-color: #2368e1;
-	color: white;
+	color: white!important;
 	font-weight: 600;
 	border: 1px solid transparent;
 }

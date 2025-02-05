@@ -37,24 +37,10 @@ h3{
     color: #ffffff
 }
 
-.small a {
-    color: white !important; 
-    text-decoration: none;    
-}
-
-.small a:hover {
-    text-decoration: underline; 
-}
-
 .grey{ 
     color: #ffffff; 
 }
  
-a{
-	color: #ffffff;
-    text-decoration: none;
-}
-
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*header*/
 
@@ -169,7 +155,6 @@ header .navitems{
 	font-weight: 100;
 }
 
-
 /* Breadcrumb */
 header nav ol.breadcrumb{
 	margin: 10px 5px;
@@ -179,7 +164,7 @@ header nav ol.breadcrumb{
     padding: .75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #c0e2ff;
+    background-color: #e9ecef;
     border-radius: .25rem;
 	font-size: 75%;
 }
@@ -209,272 +194,66 @@ header nav.breadcrumb ol li.breadcrumb-item.active{
 /*Body*/
 
 body{
-	background-color: #000000;
+	background-color: #ffffff;
 	margin: 0;
     font-family: arial;
+    min-height: 200vh;
 }
 
 main{
 	padding: 15px;
 }
 
-.wrapper{
-	max-width: 1090px;
-	margin: 0 auto;
-	background-color: rgb(0, 255, 60);
-	border: 1px solid grey;
-	padding: 15px;
+.container {
+    width: 50vw;
+    padding: 0;
+    margin: 0;
 }
 
 
-/* Side-by-side elements using Flex method*/
-.flex-container{
-	display: flex;
-}
-
-.flex-child{
-	flex: 1;
-}
-
-.flex-child:not(:last-child){
-	padding-right: 20px;	
-}
-
-/* Forms */
-label{
-	font-weight: 900;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    color: #ffffff;
+.box {
+    width: 100vw; /* Fait en sorte que chaque box prenne toute la largeur */
+    background-color: rgb(184, 184, 184);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Permet de positionner les boutons */
+    flex-grow: 1;
     
 }
 
-input, select, textarea{
-	border: 0;
-    padding: 8px 5px;
-    margin-top: 5px;
-    border-radius: 8px;
-    color: #000000;
+.search-container{
+    width: 50vw;
+    padding: 0;
+    margin: 0;
 }
 
-/* Cibler directement les labels de checkbox et radio */
-input[type="checkbox"] + label,
-input[type="radio"] + label {
-  color: white !important; 
+
+.search-container1{
+    width: 50vw;
+    padding: 0;
+    margin: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  color: white !important;
-  background-color: transparent; 
-}
+/*body*/
 
-form {
-    color: white !important;  
-}
-
-.small {
-    color: white !important; 
-}
-
-textarea{
-	resize: none;
-}
-
-button{
-	text-transform : uppercase;
-	border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 300ms ease 0s, color 300ms ease 0s;
-    cursor: pointer;
-    -webkit-box-align: center;
-    align-items: center;
-    display: inline-flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding: 8px 15px;
-}
-
-button[type="reset"]{
-	background-color: #2368e1;
-	color: rgb(255, 255, 255);
-}
-
-button[type="reset"]:hover{
-	background-color: #2368e1;
-}
-
-button[type="submit"]{
-	background-color: #2368e1;
-	color: white!important;
-	font-weight: 600;
-	border: 1px solid transparent;
-}
-
-button[type="submit"]:hover{
-	background-color: #2368e1;
-}
-
-input[type="file"] {
-    display: none;
-    
-}
-
-.file-upload{
-    display: inline-block;
-	transition: background-color 300ms ease 0s, color 300ms ease 0s;
-	padding: 8px 15px;
-    margin-top: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	font-size: 0.8em;
-	border: 1px solid transparent;
-}
-
-.file-upload:hover{
-	background-color:#2368e1;
-}
-
-input[type="radio"]{
-	accent-color: #2368e1;
-}
-
-.form-section {
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 65%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 2;
-}
-  
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1; 
-}
-
-.form-section-flou{
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 2;
-}
-
-.form-section-flou::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1; 
-}
-
-.form-section form {
-    z-index: 2;
-    position: relative;
-}
-
-button {
-    text-transform: uppercase;
-    background-color: #2368e1;
-    color: rgb(0, 0, 0);
-    font-weight: 600;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-  
-button[type="reset"] {
-    background-color: #2368e1;
-    color: #ffffff;
-}
-  
-/* Styles for tags */
-.tag {
-    padding: .25rem .5rem;
-    background-color: white;
-    border: 1px solid black;
-    font-size: .75rem;
-    line-height: 1.1rem;
-    border-radius: 4px;
-}
-  
-.tag:not(:last-child) {
-    margin-right: 5px;
-}
-
-/* Conteneur pour les boutons (centrer et aligner côte à côte) */
-.button-container {
-    display: flex;
-    justify-content: center; /* Centrer les boutons horizontalement */
-    gap: 20px; /* Espacement entre les boutons */
-    width: 100%;
-    margin-top: 20px; /* Espacement avec le contenu précédent */
-}
-  
-/* Boutons - Style pour les boutons "Postuler" et "Réinitialiser" */
-button {
-    background-color: #2368e1; /* Bleu spécifique */
-    color: white; /* Texte en blanc */
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    width: 150px; /* Largeur fixe pour les boutons */
-}
-  
-button[type="reset"], button[type="submit"] {
-    /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
-    width: 150px;
-}
-
-/* === Message d'erreur === */
-.error {
-    color: #ffed00;  /* Couleur des messages d'erreur en jaune */
-}
-
-/* Changer la couleur du contour (outline) lorsqu'un champ est focus */
-input:focus, select:focus, textarea:focus {
-    outline: 2px solid #ffed00;  /* Couleur jaune pour le contour */
-    border-color: #ffed00; /* Couleur jaune pour la bordure */
-}
-
-/* Optionnel : Changer la couleur de la bordure pour les champs invalides lorsqu'ils sont en focus */
-input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
-    border-color: #ffed00;  /* Jaune pour la bordure des champs invalides */
-    outline: none; /* Éviter l'outline par défaut du navigateur */
-}
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
 
 footer{
-	background-color: black;
+	background-color: rgb(0, 0, 0);
     color: white;
-    padding: 15px;
+    padding: 25;
     margin-top: 25px;
     font-size: 0.8em;
 	font-style: italic;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .footer-logo {
