@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+/* Header */
+header {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout {
+    border: 1px solid yellow;
+    padding: 5px 10px;
+    color: black;
+    background-color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout:hover {
+    background-color: #ffdd00;
+}
+
+/* Main Content */
+.container {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stats div {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 30%;
+}
+
+.stats div h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.stats div p {
+    font-size: 16px;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.person {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.person img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.person .details {
+    font-size: 14px;
+}
+
+/* Additional Section: Nombre de postulants */
+.stats .postulants {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: yellow;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
