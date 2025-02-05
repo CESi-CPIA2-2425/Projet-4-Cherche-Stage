@@ -27,16 +27,16 @@ header nav a {
 }
 
 .logout {
-    border: 1px solid yellow;
+    border: 1px solid #007bff;
     padding: 5px 10px;
     color: black;
-    background-color: yellow;
+    background-color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
 
 .logout:hover {
-    background-color: #ffdd00;
+    background-color: #007bff;
 }
 
 /* Main Content */
@@ -109,7 +109,7 @@ footer {
 }
 
 footer a {
-    color: yellow;
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
 }
