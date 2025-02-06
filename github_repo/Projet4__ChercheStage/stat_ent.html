@@ -1,0 +1,114 @@
+<!doctype html> 
+<html lang="fr"> 
+   <head> 
+      <meta charset="utf-8">
+      <meta name="description" content="Postuler à une offre de stage">
+      <title>Lebonplan</title>
+      <link rel="stylesheet" href="stat_ent.css">
+      <link rel="icon" href="./logo_chap.png">
+    </head> 
+    <body>
+    <header style="text-align: center; padding: 20px;">
+        <img src="file:./logo.png" alt="Logo" style="width: 500px;"> 
+    </header>
+    <header>
+        <div class="navbar">
+            <!-- Bouton hamburger -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu">&#9776;</button>
+            
+            <nav class="nav-items-container">
+                <ul class="main-menu" id="main-menu">
+                    <li class="menu-item"><a href="file:./accueil_ent.HTML" class="top-level-entry active">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./contact_ent.HTML" class="top-level-entry">Contact</a></li>
+                    <li class="menu-item"><a href="file:./entreprise.html" class="top-level-entry">Entreprise</a></li>
+                    <li class="menu-item"><a href="file:./offre_ent.html" class="top-level-entry">Offre</a></li>
+                </ul>
+
+                <!-- Liens de Connexion et S'inscrire à droite -->
+                <div class="auth-links">
+                    <a href="file:./accueil.HTML" class="button">Déconnexion</a>
+                </div>
+            </nav>
+        </div>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="file:./accueil_ent.HTML">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="file:./protction_ent.html">Protection des données</a></li>
+            </ol>
+        </nav>
+        <br>
+     </header>
+<main>
+    <div class="container">
+        <h1>STATISTIQUES</h1>
+        <div class="stats">
+            <div>
+                <h2>Nombre de vues de l'annonce</h2>
+                <p>540</p>
+                <h2>Nombre de postulants</h2>
+                <p>60</p>
+            </div>
+            <div>
+                <h2>Personnes ayant vu l'annonce</h2>
+                <div class="person">
+                    <img src="user1.png" alt="User Image">
+                    <div class="details">
+                        <p>Nom Prenom</p>
+                        <p>Niveau d'étude</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="user2.png" alt="User Image">
+                    <div class="details">
+                        <p>Nom Prenom</p>
+                        <p>Niveau d'étude</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>Personnes ayant postulé</h2>
+                <div class="person">
+                    <img src="user3.png" alt="User Image">
+                    <div class="details">
+                        <p>Nom Prenom</p>
+                        <p>Niveau d'étude</p>
+                    </div>
+                </div>
+                <div class="person">
+                    <img src="user4.png" alt="User Image">
+                    <div class="details">
+                        <p>Nom Prenom</p>
+                        <p>Niveau d'étude</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</main>
+
+<footer class="footer">
+    <div class="footer-content">
+        <img src="logo_chap.png" alt="Logo gauche" class="footer-logo left">
+        <img src="logo_text.png" alt="Logo droit" class="footer-logo right">
+        <div class="footer-links">
+            <a href="file:./coockies.html">Cookies</a>
+            <a href="file:./faq.html">F.A.Q</a>
+            <a href="file:./cgu.html">Conditions générales</a>
+            <a href="file:./protection.html">Politique de protection des données</a>
+        </div>
+    </div>
+</footer>
+</body> 
+<script>
+    // Cibler le bouton hamburger et le menu de gauche
+const menuToggle = document.getElementById('menu-toggle');
+const mainMenu = document.getElementById('main-menu');
+
+// Ajouter un événement au clic pour afficher/masquer le menu
+menuToggle.addEventListener('click', function() {
+  mainMenu.classList.toggle('active'); // Ajouter ou retirer la classe 'active' pour ouvrir/fermer
+});
+
+  </script>
+</html>
