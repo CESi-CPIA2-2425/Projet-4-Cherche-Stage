@@ -1,13 +1,10 @@
 // Fonction de validation du formulaire
 function validateForm() {
     // Cibler les inputs du formulaire
-    const entreprise = document.querySelector('input[name="entreprise"]');
+    const title = document.querySelector('select[name="title"]');
     const lastname = document.querySelector('input[name="lastname"]');
     const surname = document.querySelector('input[name="surname"]');
     const email = document.querySelector('input[name="email"]');
-    const address = document.querySelector('input[name="address"]');
-    const SIREN = document.querySelector('input[name="SIREN"]');
-    const domaine = document.querySelector('input[name="domaine"]');
     const password = document.querySelector('input[name="password"]');
 
     // Réinitialiser les messages d'erreur
@@ -15,9 +12,9 @@ function validateForm() {
 
     let isValid = true;
 
-    // Vérifier si le nom de l'entreprise est vide
-    if (entreprise.value.trim() === '') {
-        displayError(entreprise, 'Le nom de l\'entreprise est requis.');
+    // Vérifier si la civilité est sélectionnée
+    if (title.value === '') {
+        displayError(title, 'La civilité est requise.');
         isValid = false;
     }
 
@@ -39,24 +36,6 @@ function validateForm() {
         isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email.value)) {
         displayError(email, 'L\'email n\'est pas valide.');
-        isValid = false;
-    }
-
-    // Vérifier si l'adresse est vide
-    if (address.value.trim() === '') {
-        displayError(address, 'L\'adresse est requise.');
-        isValid = false;
-    }
-
-    // Vérifier si le numéro SIREN est valide
-    if (SIREN.value.trim() === '') {
-        displayError(SIREN, 'Le numéro de SIREN est requis.');
-        isValid = false;
-    }
-
-    // Vérifier si le domaine d'activité est vide
-    if (domaine.value.trim() === '') {
-        displayError(domaine, 'Le domaine d\'activité est requis.');
         isValid = false;
     }
 
@@ -115,7 +94,7 @@ submitButton.addEventListener('click', function(event) {
     event.preventDefault();  // Empêche la soumission par défaut
 
     if (validateForm()) {
-        window.location.href = 'accueil_ent.html';  // Redirige vers la page entreprise
+        window.location.href = 'accueil_etu.html';  // Redirige vers la page étudiante
     } else {
         alert("Veuillez corriger les erreurs avant de soumettre.");
     }

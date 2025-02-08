@@ -5,6 +5,7 @@
       <meta name="description" content="Postuler à une offre de stage">
       <title>Lebonplan</title>
       <link rel="stylesheet" href="inscription_ent.css">
+      <link rel="verfi" href="inscription_ent.js">
       <link rel="icon" href="./logo_chap.png">
     </head> 
     <body>
@@ -45,49 +46,67 @@
                 <p class="text-justify">Vous n’avez pas de compte ? Créons en un ensemble ! C’est facile, rapide et gratuit !</p>
                 <article>
                     <form>
-                        <label>Nom de l'entreprise<br><input style="width: 99%" name="entreprise" type="text" size="50" value="" required ></label>
+                        <label>Nom de l'entreprise*<br><input style="width: 99%" name="entreprise" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Nom<br><input style="width: 99%" name="lastname" type="text" size="50" value="" required ></label>
+                        <label>Nom*<br><input style="width: 99%" name="lastname" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Prénom<br><input style="width: 99%" name="surname" type="text" size="50" value="" required ></label>
+                        <label>Prénom*<br><input style="width: 99%" name="surname" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Adresse mail<br><input style="width: 99%" name="email" type="email" size="50" value="" required ></label>
+                        <label>Adresse mail*<br><input style="width: 99%" name="email" type="email" size="50" value="" required ></label>
                         <br><br>
-                        <label>Adresse postale<br><input style="width: 99%" name="address" type="text" size="50" value="" required ></label>
+                        <label>Adresse postale*<br><input style="width: 99%" name="address" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Numéro de SIREN<br><input style="width: 99%" name="SIREN" type="text" size="50" value="" required ></label>
+                        <label>Numéro de SIREN*<br><input style="width: 99%" name="SIREN" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Domaine d'activité<br><input style="width: 99%" name="domaine" type="text" size="50" value="" required ></label>
+                        <label>Domaine d'activité*<br><input style="width: 99%" name="domaine" type="text" size="50" value="" required ></label>
                         <br><br>
-                        <label>Mot de passe<br><input style="width: 99%" name="password" type="password" size="50" value="" required ></label>
+                        <label>Mot de passe*<br><input style="width: 99%" name="password" type="password" size="50" value="" required ></label>
+                        <div class="small grey"><em>Pour un mot de passe sécurisé, pensez à utiliser des majuscules, des chiffres et des caractères spéciaux.</em></div>
                         <br><br>
                         <div class="button-container">
-                            <button type="submit"><a href="file:./accueil_ent.html">C'est parti !</a></button>&nbsp;<button type="reset">Réinitialiser</button>
+                          <button id="submit-btn" type="submit" disabled>C'est parti !</button>&nbsp;<button type="reset">Réinitialiser</button>
                         </div>
                         <br><br>
+                        <div class="small grey"><em>*Données indispensables à l'envoie du formulaire.</em></div>
                         <div class="small grey"><em>En cliquant sur "C'est parti !", vous acceptez les <a href="file:./cgu.html">conditions générales</a> et déclarez avoir pris connaissance de la <a href="file:./protection.html">politique de protection des données</a> de notre site.</em></div>
-                    </form>
+                        <div class="small grey"><em>Nous nous concervons le droit de supprimer automatiquement un compte innactif depuis 365 jours après un rappel, conformément à la <a href="file:./concervation.html">politique de concervation des données</a> de notre site.</em></div>       
+                      </form>
                 </article>
             </section>
         </section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <img src="logo_chap.png" alt="Logo gauche" class="footer-logo left">
-            <img src="logo_text.png" alt="Logo droit" class="footer-logo right">
-            <div class="footer-links">
-                <a href="file:./coockies.html">Cookies</a>
-                <a href="file:./faq.html">F.A.Q</a>
-                <a href="file:./cgu.html">Conditions générales</a>
-                <a href="file:./protection.html">Politique de protection des données</a>
-                <br> <br> 
-                <a  style='color:#ffffff; text-align :center;'   href="https://www.google.fr/maps/place/Campus+CESI/@43.5792319,3.9432547,794m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12b6afdaa52cccbf:0xa4dd1993e0746bd!8m2!3d43.5792281!4d3.9481256!16s%2Fg%2F1v202y6s?entry=ttu&g_ep=EgoyMDI1MDIwMi4wIKXMDSoASAFQAw%3D%3D">Immeuble Le Quatrième Zone Aéroportuaire de Montpellier Méditerranée, 34130 Mauguio</a>
-            </div>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+      <!-- Colonne 1 : Logos -->
+      <div class="footer-column">
+        <img src="logo_chap.png" alt="Logo principal" class="footer-logo">
+      </div>
   
+      <!-- Colonne 2 : Coordonnées -->
+      <div class="footer-column">
+        <h3>Coordonnées</h3>
+        <a  style='color:#ffffff'href="https://www.google.fr/maps/place/Campus+CESI/@43.5792319,3.9432547,794m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12b6afdaa52cccbf:0xa4dd1993e0746bd!8m2!3d43.5792281!4d3.9481256!16s%2Fg%2F1v202y6s?entry=ttu&g_ep=EgoyMDI1MDIwMi4wIKXMDSoASAFQAw%3D%3D">Immeuble Le Quatrième Zone Aéroportuaire de Montpellier Méditerranée, 34130 Mauguio</a>
+        <p><i class="fa-solid fa-envelope"></i> contact@cesi.fr</p>
+        <p><i class="fa-solid fa-phone"></i> 01 23 45 67 89</p>
+      </div>
   
-      <br><br><br><br>
-          <div class="rounded-social-buttons">
+      <!-- Colonne 3 : Navigation -->
+      <div class="footer-column">
+        <h3>Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="file:./coockies.html">Cookies</a></li>
+          <li><a href="file:./faq.html">F.A.Q</a></li>
+          <li><a href="file:./cgu.html">Conditions générales</a></li>
+          <li><a href="file:./protection.html">Politique de protection des données</a></li>
+          <li><a href="file:./mentions_legales.html">Mentions légales</a></li>
+        </ul>
+      </div>
+  
+      <!-- Colonne 4 : Réseaux sociaux -->
+      <div class="footer-column">
+        <h3>Suivez-nous</h3>
+        <div class="social-buttons">
           <a class="social-button twitter" href="https://x.com/cesi_officiel?s=21" target="_blank"><i class="fa-brands fa-twitter">
             <img class="twitter" 
                         src="file:./Twitter.png"></i></a>
@@ -97,9 +116,17 @@
             <a class="social-button instagram" href=" https://www.instagram.com/bde.cesi.montpellier?igsh=MWVhaWFvNGNvcDZuNw==" target="_blank"><i class="fa-brands fa-instagram">
             <img class="instagram" 
                         src="file:./instagram.png"></i></a>
-      </footer>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bas de page -->
+    <div class="footer-bottom">
+      <p>Copyright © 2025 - Tous droits réservés. <a href="file:./mentions_legales.html">Mentions légales</a></p>
+    </div>
+  </footer>
 
-    <!-- Lien vers le fichier JavaScript -->
-    <script src="inscription_ent.js"></script> 
-</body>
+<!-- Lien vers le fichier JavaScript -->
+<script src="inscription_etu.js"></script> 
+
 </html>
