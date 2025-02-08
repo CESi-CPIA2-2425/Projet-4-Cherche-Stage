@@ -450,6 +450,27 @@ button a {
 button a:hover {
     text-decoration: underline; /* Ajouter un effet au survol du lien si souhaité */
 }
+button[type="reset"], button[type="submit"] {
+  /* Largeur spécifique aux boutons, avec un espacement automatique pour alignement */
+  width: 150px;
+}
+
+/* === Message d'erreur === */
+.error {
+  color: #ffed00;  /* Couleur des messages d'erreur en jaune */
+}
+
+/* Changer la couleur du contour (outline) lorsqu'un champ est focus */
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #ffed00;  /* Couleur jaune pour le contour */
+  border-color: #ffed00; /* Couleur jaune pour la bordure */
+}
+
+/* Optionnel : Changer la couleur de la bordure pour les champs invalides lorsqu'ils sont en focus */
+input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
+  border-color: #ffed00;  /* Jaune pour la bordure des champs invalides */
+  outline: none; /* Éviter l'outline par défaut du navigateur */
+}
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
