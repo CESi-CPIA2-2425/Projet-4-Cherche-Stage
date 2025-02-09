@@ -50,9 +50,9 @@ h3{
 }
 
 a.button{
-	padding: .25rem .5rem;
+	padding: 4px 8px;
     background-color: white;
-    line-height: 1.1rem;
+    line-height: 18px;
     border-radius: 4px;
     color: #2368e1 !important;
     font-weight: 600;
@@ -62,11 +62,69 @@ a.button{
     float: right;
 }
 
-header{ 
-    background-color: #000000; 
-}
+header {
+    background-color: rgb(0, 0, 0);
+    
+    padding: 15px;
+  }
 
-/* Navbar */
+
+/* Navigation principale */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: white; 
+  }
+  
+/* Menu principal */
+.main-menu {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0
+  }
+  
+  .menu-item {
+    position: relative;
+    margin-right: 25px
+  }
+
+  .top-navigation-main {
+    background-color: #000000; 
+    padding: 15px 20px;
+    border-bottom: 1px solid #000000
+  }
+  
+  /* Liens du menu */
+  .top-level-entry {
+    color: white; 
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px;
+    display: inline-block
+  }
+  
+  .top-level-entry:hover {
+    color: #2368e1
+  }
+  
+  /* L'élément actif devient gris */
+  .top-level-entry.active {
+    color: #2368e1; 
+    border-radius: 5px
+  }
+  .auth-container .button.primary:hover {
+    text-decoration: underline
+  }
+
+  nav {
+    background: #000000;
+    padding: 10px;
+    text-align: left;
+  }
+
 header .navbar{
 	background-color: black;
 	color: #2368e1;
@@ -91,7 +149,7 @@ header .navitems{
 	display: inline-block;
 }
 
-header .navitems .navitem:not(:last-child)::after{
+.menu-item:not(:last-child)::after {
 	content: ' | ';
 	color: white;
 	font-weight: 100;
@@ -106,7 +164,7 @@ header nav ol.breadcrumb{
     padding: .75rem 1rem;
     margin-bottom: 1rem;
     list-style: none;
-    background-color: #e9ecef;
+    background-color: #C0E2FF;
     border-radius: .25rem;
 	font-size: 75%;
 }
@@ -139,6 +197,7 @@ body{
 	background-color: #ffffff;
 	margin: 0;
     font-family: arial;
+    min-height: 100vh;
 }
 
 main{
@@ -176,8 +235,8 @@ main{
    
     padding: 10px 70px;
     border: none;
-    background-color: #007BFF;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(247, 247, 247);
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
@@ -186,7 +245,7 @@ main{
 
 .search-button:hover {
     
-    background-color: #0056b3;
+    background-color: #ffffff;/*#0056b3   007BFF*/
 }
 
 /* Side-by-side elements using Flex method*/
@@ -256,6 +315,7 @@ button{
     -webkit-box-pack: center;
     justify-content: center;
     padding: 8px 15px;
+    
 }
 
 button[type="reset"]{
@@ -370,6 +430,25 @@ button[type="reset"] {
     background-color: #080808;
     color: #ffffff;
 }
+
+/*bouton bleu avec ecriture blache*/
+.search-button {
+    background-color: blue; /* Fond bleu */
+    color: white; /* Texte blanc */
+    border: none; /* Supprimer la bordure par défaut */
+    padding: 10px 20px; /* Ajouter de l'espace autour du texte */
+    font-size: 16px; /* Taille de police */
+    cursor: pointer; /* Changer le curseur quand on survole le bouton */
+}
+
+.search-button a {
+    color: white; /* Assurer que le texte dans le lien reste blanc */
+    text-decoration: none; /* Enlever le soulignement du lien */
+}
+
+.search-button:hover {
+    background-color: darkblue; /* Couleur plus foncée lors du survol */
+}
   
 /* Styles for tags */
 .tag {
@@ -397,7 +476,7 @@ button[type="reset"] {
 /* Boutons - Style pour les boutons "Postuler" et "Réinitialiser" */
 button {
     background-color: #2368e1; /* Bleu spécifique */
-    color: white; /* Texte en blanc */
+    color: rgb(255, 255, 255); /* Texte en blanc */
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
@@ -418,103 +497,219 @@ button[type="reset"], button[type="submit"] {
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Footer*/
 
-footer{
-	background-color: rgb(0, 0, 0);
+.footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Colonnes du footer */
+  .footer-column {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+  }
+  
+  /* Titres des colonnes */
+  .footer-column h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Liens et texte */
+  .footer-column p,
+  .footer-links li {
+    margin: 5px 0;
+  }
+  
+  .footer-links a {
+    color: #ffd700;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Logos */
+  .footer-logo {
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo-text {
+    max-width: 120px;
+  }
+  
+  /* Réseaux sociaux */
+  .social-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.125rem solid transparent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1a1a1a;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.5s ease;
+  }
+  
+
+  .social-button:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Bas de page */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+  }
+  
+  .footer-bottom a {
+    color: #ffd700;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  
+  .social-buttons .social-button:hover, .social-buttons .social-button:focus {
+    -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  
+  .social-buttons .fa-twitter, .fa-facebook-f, .fa-tiktok, .fa-youtube, .fa-instagram {
+    font-size: 25px;
+  }
+
+  .tiktok {
+    font-size: 25px !important;
+
+  }
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+/* --- Styles de base pour le bouton hamburger --- */
+.menu-toggle {
+    display: none; /* Masqué par défaut */
+    background: #000000;
     color: white;
-    padding: 25;
-    margin-top: 25px;
-    font-size: 0.8em;
-	font-style: italic;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    background-color: #000000; /* Couleur plus foncée au survol */
+}
+
+/* --- Styles généraux de la navigation --- */
+.nav-items-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
-.footer-logo {
-    width: auto;
-    height: 50px; /* Ajuste la taille des logos */
-}
-
-.footer-links {
-    color: yellow;
-    font-size: 1em;
-    font-weight: bold;
+.main-menu {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
 }
 
-.footer-links a {
-    color: yellow;
+.menu-item {
+    position: relative;
+    margin-right: 25px;
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links a {
+    color: white;
     text-decoration: none;
-    margin: 5px 0;
+    font-weight: 600;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
-}
 
-.left {
-    margin-right: 20px;
-}
+/* --- Menu Burger Mobile --- */
+@media (max-width: 1050px) {
+    /* Afficher le bouton hamburger */
+    .menu-toggle {
+        display: block; 
+    }
 
-.right {
-    margin-left: 20px;
-}
+    /* Menu principal masqué par défaut */
+    .main-menu {
+        display: none; /* Masquer le menu par défaut */
+        flex-direction: column;
+        background-color: #000000;
+        padding: 15px;
+        position: absolute;
+        top: 300px; /* Positionner sous le nav et entre Connexion et S'inscrire */
+        left: 0;
+        right: 0;
+        border-radius: 10px;
+        z-index: 10;
+        transition: transform 0.3s ease; /* Animation pour l'apparition du menu */
+        transform: translateY(-20px); /* Initialement décalé */
+    }
+  
+    /* Afficher le menu lorsque le bouton est activé */
+    .main-menu.active {
+        display: flex;
+        transform: translateY(0); /* Remettre le menu à sa place */
+    }
 
-/*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Media querries*/
+    .menu-item {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 18px;
+    }
 
-@media (min-width: 1281px){
-	ul.categories
-	{
-		list-style: none;
-	}
-	ul.categories li
-	{
-		display: inline;
-	}
-	ul.categories li:not(:last-child)::after
-	{
-		content: ' - ';	
-	}
-}
-
-@media (min-width: 1025px) and (max-width: 1280px){	
-}
-
-@media (min-width: 768px) and (max-width: 1024px){
-	.flex-container{ display: block; }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape){
-  .flex-container{ display: block; }
-}
-
-@media (min-width: 481px) and (max-width: 767px){
-	.flex-container{ display: block; }
-	header .navbar .navitem
-	{
-		padding: 5px 0;
-		display: block;
-	}
-	header .navbar .navitem:not(:last-child)::after
-	{
-		content: '';
-	}
-	
-	header img{ width: 30%;}
-}
-
-@media (min-width: 320px) and (max-width: 480px){
-  .flex-container{ display: block; }
-}
-
-@media (max-width: 768px) {
-    .form-section {
-      width: 90%; 
+    /* Lien de Connexion et S'inscrire en bas du menu */
+    .auth-links {
+        margin-top: 15px; /* Ajouter un espace au-dessus */
+        justify-content: center; /* Centrer les liens */
     }
 }
-  
+
+/* --- Styles pour les écrans plus larges --- */
+@media (min-width: 1051px) {
+    .menu-toggle {
+        display: none; /* Masquer le bouton hamburger sur les grands écrans */
+    }
+}
