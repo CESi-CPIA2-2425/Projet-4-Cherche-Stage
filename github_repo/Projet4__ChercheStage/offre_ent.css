@@ -87,13 +87,19 @@ h3{
 }
 
 .offer-container button {
-    padding: 5px 10px;
+    padding: 5px 15px; /* Uniformiser les tailles des boutons */
     font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 5px;
+    width: 140px; /* Fixer une largeur uniforme */
+    text-align: center;
+    display: inline-block; /* Important pour le comportement en ligne */
+    vertical-align: middle; /* Alignement uniforme en ligne */
+    line-height: normal; /* Réinitialiser toute hauteur de ligne modifiée */ /* Assure un alignement uniforme */
 }
+
 
 .btn-delete {
     background-color: #ff4d4d;
@@ -106,9 +112,40 @@ h3{
 }
 
 .btn-view {
+    background-color: #ccc;
+    color: black;
+     font-size: 0.73rem !important
+    
+}
+
+.btn-edit {
     background-color: #2368e1;
     color: white;
 }
+
+.gender-radio-group {
+    margin: 5px 0 10px; /* Espacement autour du groupe */
+    font-size: 0.9rem; /* Taille de texte */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacement entre les options */
+    border :#2368e1;
+}
+
+.gender-radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacement entre le bouton et le texte */
+    color: black; /* Couleur du texte */
+    font-weight: normal;
+}
+
+.gender-radio-group input[type="radio"] {
+    accent-color: #2368e1; /* Couleur du bouton radio */
+    margin: 0;
+    padding: 0;
+}
+
 
 
 
@@ -373,103 +410,6 @@ button{
     
 }
 
-button[type="reset"]{
-	background-color: #2368e1;
-	color: rgb(255, 255, 255);
-}
-
-button[type="reset"]:hover{
-	background-color: #2368e1;
-}
-
-button[type="submit"]{
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	border: 1px solid transparent;
-}
-
-button[type="submit"]:hover{
-	background-color: #2368e1;
-}
-
-input[type="file"] {
-    display: none;
-    
-}
-
-.file-upload{
-    display: inline-block;
-	transition: background-color 300ms ease 0s, color 300ms ease 0s;
-	padding: 8px 15px;
-    margin-top: 5px;
-    border-radius: 8px;
-    cursor: pointer;
-	background-color: #2368e1;
-	color: white;
-	font-weight: 600;
-	font-size: 0.8em;
-	border: 1px solid transparent;
-}
-
-.file-upload:hover{
-	background-color:#2368e1;
-}
-
-input[type="radio"]{
-	accent-color: #2368e1;
-}
-
-.form-section {
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 65%;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 8px;
-    z-index: 2;
-}
-  
-.form-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    z-index: -1; 
-}
-
-.form-section-flou{
-    position: relative;
-    background: rgba(255, 255, 255, 0.8); /* White background with opacity */
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 2;
-}
-
-.form-section-flou::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('./images/fond_connexion.png') no-repeat center center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1; 
-}
-
-.form-section form {
-    z-index: 2;
-    position: relative;
-}
-
 button {
     text-transform: uppercase;
     background-color: #2368e1;
@@ -481,10 +421,6 @@ button {
     cursor: pointer;
 }
   
-button[type="reset"] {
-    background-color: #2368e1;
-    color: #ffffff;
-}
   
 /* Styles for tags */
 .tag {
@@ -527,7 +463,6 @@ button[type="reset"], button[type="submit"] {
 }
 
 /*-----------------------------------------------------------------------------------------------------------------------------*/
-/*Footer*/
 .footer {
     background-color: #000000;
     color: #fff;
@@ -646,6 +581,7 @@ button[type="reset"], button[type="submit"] {
     font-size: 25px !important;
 
   }
+
 /*-----------------------------------------------------------------------------------------------------------------------------*/
 /*Media querries*/
 

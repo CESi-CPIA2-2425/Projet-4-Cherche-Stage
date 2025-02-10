@@ -18,10 +18,10 @@
 
             <nav class="nav-items-container">
                 <ul class="main-menu" id="main-menu">
-                    <li class="menu-item"><a href="file:./accueil_ent.HTML" class="top-level-entry active">Accueil</a></li>
+                    <li class="menu-item"><a href="file:./accueil_ent.HTML" class="top-level-entry">Accueil</a></li>
                     <li class="menu-item"><a href="file:./contact_ent.HTML" class="top-level-entry">Contact</a></li>
                     <li class="menu-item"><a href="file:./entreprise.HTML" class="top-level-entry">Entreprise</a></li>
-                    <li class="menu-item"><a href="file:./Offre_ent.HTML" class="top-level-entry">Offre</a></li>
+                    <li class="menu-item"><a href="file:./Offre_ent.HTML" class="top-level-entry active">Offre</a></li>
                 </ul>
 
                 <!-- Liens de Connexion et S'inscrire à droite -->
@@ -40,24 +40,55 @@
      </header>
       <a href="creer_offre.html" class="create-offer-btn" >+ Créer une offre</a>
       <main>
-          <h2>Vos offres</h2>
+        <h2>Vos offres</h2>
+        
+        <div class="offer-container">
+          <h3>Développeur Web Front-End</h3>
+          <!-- Ajout du sélecteur pour Homme/Femme -->
+          <div class="gender-radio-group">
+            <p>Homme</p>
+            <p>Femme</p>
+        </div>
+          <p>Nous recherchons un développeur web front-end pour concevoir et développer des interfaces utilisateur modernes en HTML, CSS et JavaScript.</p>
+          <button class="btn-delete"><a href="#" style ="color:#ffffff">Supprimer</a></button>
+          <button class="btn-edit"><a href="file:./creer_offre.HTML" style ="color:#ffffff">Modifier</a></button>
+          <button class="btn-stats"><a href="file:./stat_ent.HTML" style ="color:#2368e1">Stats</a></button>
+          <button class="btn-view"><a href="file:./candidature_ent.HTML" style ="color:#2368e1">Voir candidature</a></button>
           
-          <div class="offer-container">
-            <h3>Nom de l'offre 1 H/F</h3>
-            <p>Description de l'offre...</p>
-            <button class="btn-delete"><a href="#">Supprimer</a></button>
-            <button class="btn-stats"><a href="file:./stat_ent.html">stats</a></button>
-            <button class="btn-view"><a href="file:./candidature_ent.html">Voir candidature</a></button>
+      </div>
+      
+      <div class="offer-container">
+          <h3>Assistant Marketing Digital</h3>
+          <!-- Ajout du sélecteur pour Homme/Femme -->
+          <div class="gender-radio-group">
+              <p>Homme</p>
+              <p>Femme</p>
           </div>
-          <div class="offer-container">
-              <h3>Nom de l'offre 2 H/F</h3>
-              <p>Description de l'offre...</p>
-              <button class="btn-delete"><a href="#">Supprimer</a></button>
-              <button class="btn-stats"><a href="file:./stat_ent.html">stats</a></button>
-              <button class="btn-view"><a href="file:./candidature_ent.html">Voir candidature</a></button>
-          </div>
-      </main>
+          <p>Nous recherchons un assistant marketing digital pour gérer les campagnes publicitaires en ligne et analyser les performances des réseaux sociaux.</p>
+          <button class="btn-delete"><a href="#" style ="color:#ffffff">Supprimer</a></button>
+          <button class="btn-edit"><a href="file:./creer_offre.HTML" style ="color:#ffffff">Modifier</a></button>
+          <button class="btn-stats"><a href="file:./stat_ent.HTML" style ="color:#2368e1">Stats</a></button>
+          <button class="btn-view"><a href="file:./candidature_ent.HTML" style ="color:#2368e1">Voir candidature</a></button>
           
+      </div>
+      
+      <div class="offer-container">
+        <h3>Stage Design</h3>
+        <!-- Ajout du sélecteur pour Homme/Femme -->
+        <div class="gender-radio-group">
+          <p>Homme</p>
+          <p>Femme</p>
+      </div>
+        <p>Nous recherchons un stagiaire maquétiste pour une durée de 2 mois. Il joindra son tuteur dans la mise en place d'une maquette complète pour un client.</p>
+        <button class="btn-delete"><a href="#" style ="color:#ffffff">Supprimer</a></button>
+          <button class="btn-edit"><a href="file:./creer_offre.HTML" style ="color:#ffffff">Modifier</a></button>
+          <button class="btn-stats"><a href="file:./stat_ent.HTML" style ="color:#2368e1">Stats</a></button>
+          <button class="btn-view"><a href="file:./candidature_ent.HTML" style ="color:#2368e1">Voir candidature</a></button>
+        
+    </div>
+      
+    </main>
+           
 </body> 
 <footer class="footer">
   <div class="footer-container">
