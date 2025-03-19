@@ -1,6 +1,8 @@
-<!doctype html> 
-<html lang="fr"> 
-   <head> 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta charset="utf-8">
       <meta name="description" content="Postuler à une offre de stage">
       <title>Lebonplan</title>
@@ -38,42 +40,10 @@
         <br>
      </header>
      <main>
-   <body>
-    <br><br><br><br>
-    <title style="color:#000000">Offres de stage pour vous</title>
-
-    <div class="container">
-    <div class="box">
-      <h2> Société:Kaleo|</h2>
-        <h2 class="title">Stage en Cyber sécurité</h2>
-        
-    
-        <a href= "Postuler.html" class="search-button" style="color: rgb(255, 255, 255); font-weight: bold; display: inline-block; padding: 11px 20px; cursor: pointer; background-color: rgb(18, 129, 225); border-radius: 5px; border: none; text-decoration: none; text-align: center;">
-          voir l'offre
-        </a>
-        
-          
-    </div>
-  </div>
-    
-
-
-    <div class="container">
-    <div class="box">
-      <h2> Société:BtPaye|</h2>
-        <h2 class="title">Alternace BTP </h2>
-        <a href= "Postuler.html" class="search-button" style="color: rgb(255, 255, 255); font-weight: bold; display: inline-block; padding: 11px 20px; cursor: pointer; background-color: rgb(18, 129, 225); border-radius: 5px; border: none; text-decoration: none; text-align: center;">
-          voir l'offre
-        </a>
-        
-    </div>
-  </div>
-    
-
-
-
-    
-</main>
+      <h1 class="titre-page">Offres de stage pour vous</h1>
+      <div class="annonces-container" id="annonces-container">
+      </div>
+  </main>
     </body> 
     <footer class="footer">
       <div class="footer-container">
@@ -125,4 +95,6 @@
       </div>
     </footer>
     <script src="../Controler/menu.js"></script> 
+    <script src="../Controler/voir_offre.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </html>
