@@ -37,7 +37,20 @@ function verifierInscription() {
 
         // 🔹 Forcer la redirection immédiatement
         setTimeout(() => {
-            window.location.href = "postuler.html";
+            Swal.fire({
+                title: "Vous êtes connecté en tant que pilote. Souhaitez vous découvrir l'annonce et y postuler ?",
+                icon: "",
+                showCancelButton: true,
+                confirmButtonText: "Découvrir",
+                cancelButtonText: "Retour",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "postuler.html";
+                }
+            });
         }, 500);
     });
 }

@@ -72,7 +72,6 @@ form.addEventListener('submit', function(event) {
     // Si le formulaire n'est pas valide, empêcher la soumission
     if (!validateForm()) {
         event.preventDefault();
-        alert("Veuillez corriger les erreurs avant de soumettre."); // Affiche un pop-up d'erreur
     }
 });
 
@@ -90,7 +89,6 @@ submitButton.addEventListener('click', function(event) {
     if (validateForm()) {  // Si le formulaire est valide, rediriger
         window.location.href = 'accueil_etu.html'; // Rediriger vers la page d'accueil
     } else {
-        alert("Veuillez corriger les erreurs avant de soumettre."); // Afficher un message d'erreur
     }
 });
 
@@ -217,7 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
             // Si le formulaire n'est pas valide, empêcher la soumission
             if (!validateForm()) {
                 event.preventDefault();
-                alert("Veuillez corriger les erreurs avant de soumettre."); // Affiche un pop-up d'erreur
             }
         });
         
@@ -235,7 +232,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (validateForm()) {  // Si le formulaire est valide, rediriger
                 window.location.href = 'accueil_etu.html'; // Rediriger vers la page d'accueil
             } else {
-                alert("Veuillez corriger les erreurs avant de soumettre."); // Afficher un message d'erreur
             }
         })
     })
