@@ -45,8 +45,12 @@
         <!-- Job Listings Section -->
         <section class="job-listings">
           <div class="container-input">
-            <input type="text" placeholder="Search" class="input">
+            <span class="search-icon" id="search-icon"></span>
+            <input type="text" id="search-input" placeholder="Search" class="input">
         </div>
+        
+        
+        
         
           <h2>Offres récentes</h2>
           <div class="jobs-grid">
@@ -78,8 +82,25 @@
           </div>
         </section>
       </main>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let searchIcon = document.getElementById("search-icon");
+            let searchInput = document.getElementById("search-input");
+    
+            if (!searchIcon || !searchInput) {
+                console.error("❌ Élément manquant : Vérifie que 'search-icon' et 'search-input' existent bien.");
+                return;
+            }
+    
+            searchIcon.addEventListener("click", function () {
+    let query = searchInput.value.trim();
+    window.location.href = `offre_etu.html?q=${encodeURIComponent(query)}`;
+});
 
-    </body> 
+        });
+    </script>
+    
+     </body> 
     <footer class="footer">
       <div class="footer-container">
         <!-- Colonne 1 : Logos -->
