@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Postuler à une offre de stage">
+    <title>Lebonplan</title>
+    <link rel="stylesheet" href="inscription_etu.css">
+    <link rel="icon" href="./logo_chap.png">
+</head>
+<body>
+
+<header style="text-align: center; padding: 20px;">
+    <img src="file:./logo.png" alt="Logo" style="width: 500px;">
+</header>
+
+<main>
+    <section class="form-section">
+        <section class="form-section-flou">
+            <h1 class="text-center">S'inscrire</h1>
+            <p class="text-justify">Vous n’avez pas de compte ? Créons en un ensemble ! C’est facile, rapide et gratuit !</p>
+            <article>
+                <form id="inscription" Formenctype="multipart/form-data" method="POST">
+
+                    <input type="hidden" name ="role" value = "etudiant">
+                    <label>Civilité<br>
+                        <select name="civilite" style="width: 100%">
+                            <option value="Madame">Madame</option>
+                            <option value="Monsieur">Monsieur</option>
+                        </select>
+                    </label>
+                    <br><br>
+                    <label>Nom*<br><input style="width: 99%" name="nom" type="text" required></label>
+                    <br><br>
+                    <label>Prénom*<br><input style="width: 99%" name="prenom" type="text" required></label>
+                    <br><br>
+                    <label>Adresse mail*<br><input style="width: 99%" name="email" type="email" required></label>
+                    <br><br>
+                    <label>Mot de passe*<br><input style="width: 99%" name="password" type="password" required></label>
+                    <br><br>
+                    <input type="checkbox" name="permis" value="1">&nbsp;Permis B
+                    <br><br>
+                    <label>Je suis majeur</label>&nbsp;
+                    <input type="radio" name="majorite" value="1" required>Oui&nbsp;
+                    <input type="radio" name="majorite" value="0" required>Non
+                    <br><br>
+                    <label for="cv">Déposez un CV</label>
+                    <input id="cv" type="file" name="cv" accept=".pdf,.doc,.docx,.odt,.rtf,.jpg,.png" required>
+                    <br><br>
+                    <div class="button-container">
+                        <button type="submit" id="submit-btn">C'est parti !</button>
+                        <button type="reset">Réinitialiser</button>
+                    </div>
+                </form>
+                <div id="resultMessage"></div>
+            </article>
+        </section>
+    </section>
+</main>
+
+<script src="inscription_etu.js"></script>
+
+</body>
+</html>

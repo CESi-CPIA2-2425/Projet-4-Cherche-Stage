@@ -1,27 +1,39 @@
 // Fonction de validation du formulaire
 function validateForm() {
-    const nom = document.querySelector('input[name="nom"]');
-    const prenom = document.querySelector('input[name="prenom"]');
+    // Cibler les inputs du formulaire, sauf le champ caché 'role'
+    const title = document.querySelector('select[name="title"]');
+    const nom = document.querySelector('input[name="lastname"]');
+    const prenom = document.querySelector('input[name="surname"]');
     const email = document.querySelector('input[name="email"]');
     const password = document.querySelector('input[name="password"]');
 
-    clearErrors();
+    clearErrors(); // Réinitialise les erreurs
+
     let isValid = true;
 
-    if (nom.value.trim() === '') {
+    // Vérifier si la civilité est sélectionnée
+    if (title && title.value === '') {
+        displayError(title, 'La civilité est requise.');
+        isValid = false;
+    }
+
+    // Vérifier si le nom est vide
+    if (nom && nom.value.trim() === '') {
         displayError(nom, 'Le nom est requis.');
         isValid = false;
     }
 
-    if (prenom.value.trim() === '') {
+    // Vérifier si le prénom est vide
+    if (prenom && prenom.value.trim() === '') {
         displayError(prenom, 'Le prénom est requis.');
         isValid = false;
     }
 
-    if (email.value.trim() === '') {
+    // Vérifier si l'email est valide
+    if (email && email.value.trim() === '') {
         displayError(email, 'L\'email est requis.');
         isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email.value)) {
+    } else if (email && !/\S+@\S+\.\S+/.test(email.value)) {
         displayError(email, 'L\'email n\'est pas valide.');
         isValid = false;
     }
@@ -43,11 +55,16 @@ function validateForm() {
         isValid = false;
     }
 
-    document.getElementById('submit-btn').disabled = !isValid;
+    // Vérifier si tous les champs nécessaires sont remplis
+    const submitButton = document.getElementById('submit-btn');
+    if (submitButton) {
+        submitButton.disabled = !isValid; // Le bouton sera désactivé si les champs ne sont pas valides
+    }
+
     return isValid;
 }
 
-// Fonction d'affichage des erreurs
+// Fonction pour afficher un message d'erreur
 function displayError(input, message) {
     const errorMessage = document.createElement('div');
     errorMessage.classList.add('error');
@@ -55,14 +72,28 @@ function displayError(input, message) {
     input.parentNode.appendChild(errorMessage);
 }
 
-// Effacer les erreurs existantes
+// Fonction pour effacer les messages d'erreur existants
 function clearErrors() {
-    document.querySelectorAll('.error').forEach(error => error.remove());
+    const errorMessages = document.querySelectorAll('.error');
+    errorMessages.forEach((error) => {
+        error.remove();
+    });
+}
+
+// Ajouter l'événement de validation lors de la soumission du formulaire
+const form = document.querySelector('#piloteForm');
+if (form) {
+    form.addEventListener('submit', function(event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Empêche la soumission si le formulaire est invalide
+            alert("Veuillez corriger les erreurs avant de soumettre.");
+        }
+    });
 }
 
 // Gestion du formulaire en AJAX
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêcher le rechargement de la page
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
     if (!validateForm()) {
         alert("Veuillez corriger les erreurs avant de soumettre.");
@@ -71,7 +102,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
     const formData = new FormData(this);
 
-    fetch('inscription_etu.php', {
+    fetch('inscription_pilote.php', {
         method: 'POST',
         body: formData
     })
@@ -79,7 +110,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
         .then(data => {
             if (data.includes("Inscription réussie")) {
                 alert("Inscription réussie !");
-
             } else {
                 alert(data); // Afficher le message d'erreur reçu du PHP
             }
