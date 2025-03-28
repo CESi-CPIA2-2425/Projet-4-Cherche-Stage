@@ -1,8 +1,8 @@
 <?php
-session_start(); // Démarrer la session
+session_start();
 
 $host = 'localhost';
-$dbname = 'projetstage';
+$dbname = 'stage';
 $username = 'root';
 $password = '';
 
@@ -16,30 +16,47 @@ try {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
-        $email = $_POST["email"]; // Pas besoin de htmlspecialchars ici
+        $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $sql = "SELECT mdp_crypte FROM utilisateur WHERE email = :email";
+        $sql = "SELECT id_uti, nom, prenom, role, mdp_crypte FROM utilisateur WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result) {
-            echo "MDP Form : " . $password . "<br>";
-            echo "MDP BDD : " . $result['mdp_crypte'] . "<br>";
+        if ($utilisateur && password_verify($password, $utilisateur['mdp_crypte'])) {
+            // On stocke les infos utiles en session
+            $_SESSION['id'] = $utilisateur['id_uti'];
+            $_SESSION['email'] = $email;
+            $_SESSION['nom'] = $utilisateur['nom'];
+            $_SESSION['prenom'] = $utilisateur['prenom'];
+            $_SESSION['role'] = $utilisateur['role'];
 
-            if ($password === $result['mdp_crypte']) {
-                $_SESSION['email'] = $email;
-                echo "Connexion réussie.";
-                header("refresh:2;url=dashboard.php");
-                exit();
-            } else {
-                echo "Échec de la connexion.";
+// Redirection selon le rôle
+            switch ($utilisateur['role']) {
+                case 'etudiant':
+                    header("Location: etudiant/accueil.html");
+                    break;
+                case 'entreprise':
+                    header("Location: entreprise/accueil.html");
+                    break;
+                case 'pilote':
+                    header("Location: pilote/accueil.html");
+                    break;
+                case 'administrateur':
+                    header("Location: admin/accueil.html");
+                    break;
+                default:
+                    echo "Rôle inconnu.";
             }
+
+            exit();
         } else {
-            echo "Échec de la connexion.";
+            echo "Échec de la connexion : email ou mot de passe incorrect.";
         }
+    } else {
+        echo "Veuillez remplir tous les champs.";
     }
 }
 ?>
