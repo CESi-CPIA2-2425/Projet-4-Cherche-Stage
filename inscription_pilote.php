@@ -14,19 +14,17 @@ try {
     exit;
 }
 
-// Vérifier si le formulaire est soumis
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    // Récupération des champs du formulaire
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $mot_de_passe = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $civilite = htmlspecialchars($_POST['civilite']);  // Correctement récupéré
-    $role = htmlspecialchars($_POST['role']);  // Assure-toi que le rôle est récupéré depuis le champ caché
+    $civilite = htmlspecialchars($_POST['civilite']);
+    $role = htmlspecialchars($_POST['role']); // "pilote" en principe
 
     try {
-        // Vérifier si l'email est déjà utilisé
+        // Vérifier si l'email existe déjà
         $stmt = $pdo->prepare("SELECT Id_uti FROM Utilisateur WHERE email = ?");
         $stmt->execute([$email]);
 
@@ -35,14 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit;
         }
 
-        // Insertion dans la table Utilisateur avec le rôle
+        // Insertion dans utilisateur
         $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, prenom, email, mdp_crypte, civilite, role) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $civilite, $role]);
 
+        $id_utilisateur = $pdo->lastInsertId();
 
-
-
-
+        // Insertion dans pilote
+        $stmt = $pdo->prepare("INSERT INTO Pilote (Id_uti) VALUES (?)");
+        $stmt->execute([$id_utilisateur]);
 
         echo "Inscription réussie !";
 
@@ -52,5 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 }
-
-
+?>

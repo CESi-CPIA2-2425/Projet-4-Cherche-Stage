@@ -23,11 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $surname = htmlspecialchars($_POST['surname']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $address = htmlspecialchars($_POST['address']);
-    $SIRET = htmlspecialchars($_POST['SIRET']);
+    $SIRET = htmlspecialchars($_POST['SIRET']); // ⚠️ Tu ne l’utilises pas ici, à stocker si besoin dans la BDD
     $SIREN = htmlspecialchars($_POST['SIREN']);
     $domaine = htmlspecialchars($_POST['domaine']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash du mot de passe
-    $role = htmlspecialchars($_POST['role']);  // Assure-toi que le rôle est récupéré depuis le champ caché
+    $role = htmlspecialchars($_POST['role']);  // ⚠️ Gardé comme tu le veux, transmis via le formulaire
 
     // Vérifier si l'email est déjà utilisé
     $stmt = $pdo->prepare("SELECT Id_uti FROM Utilisateur WHERE email = ?");
@@ -39,14 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     try {
-        // Insertion dans la table Utilisateur (compte entreprise)
-        $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, prenom, email, mdp_crypte, role) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$lastname, $surname, $email, $password , $role]);
+        // Insertion dans la table Utilisateur
+        $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, prenom, email, mdp_crypte, role)VALUES (?, ?, ?, ?, ?) ");
+        $stmt->execute([$lastname, $surname, $email, $password, $role]);
 
-        $id_utilisateur = $pdo->lastInsertId();  // ID de l'utilisateur créé
+        $id_utilisateur = $pdo->lastInsertId();  // Récupérer l'ID auto-incrémenté
 
-        // Insertion dans la table Entreprise
-        $stmt = $pdo->prepare("INSERT INTO Entreprise (Id_uti, nom_ent, adresse, SIREN, domaine_activite) VALUES (?, ?, ?, ?, ?)");
+        // Insertion dans la table Entreprise avec le même ID
+        $stmt = $pdo->prepare("INSERT INTO Entreprise (Id_uti, nom_ent, adresse, SIREN, domaine_activite) VALUES (?, ?, ?, ?, ?) ");
         $stmt->execute([$id_utilisateur, $entreprise, $address, $SIREN, $domaine]);
 
         echo "Inscription réussie !";
@@ -58,4 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-

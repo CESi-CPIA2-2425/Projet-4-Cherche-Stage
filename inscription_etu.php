@@ -52,8 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $id_utilisateur = $pdo->lastInsertId();
 
         // Insertion dans la table Etudiant
-        $stmt = $pdo->prepare("INSERT INTO Etudiant (Id_etu, cv, Majorite, permis, Id_uti) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$id_utilisateur, $cvContent, $majorite, $permis, $id_utilisateur]);
+        $stmt = $pdo->prepare("INSERT INTO Etudiant (cv, Majorite, permis, Id_uti) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$cvContent, $majorite, $permis, $id_utilisateur]);
+
 
         echo "Inscription réussie !";
 
