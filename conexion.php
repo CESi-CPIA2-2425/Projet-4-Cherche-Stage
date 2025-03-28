@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 
 $host = 'localhost';
@@ -36,16 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Redirection selon le rôle
             switch ($utilisateur['role']) {
                 case 'etudiant':
-                    header("Location: etudiant/accueil.html");
+                    header("Location: accueil_etu.html");
                     break;
                 case 'entreprise':
-                    header("Location: entreprise/accueil.html");
+                    header("Location: accueil_ent.html");
                     break;
                 case 'pilote':
-                    header("Location: pilote/accueil.html");
-                    break;
-                case 'administrateur':
-                    header("Location: admin/accueil.html");
+                    header("Location: accueil_pil.html");
                     break;
                 default:
                     echo "Rôle inconnu.";
@@ -60,3 +57,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
