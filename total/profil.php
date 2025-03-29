@@ -53,11 +53,11 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
       <meta name="description" content="Postuler à une offre de stage">
       <title>Lebonplan</title>
       <link rel="stylesheet" href="profil_etu.css">
-      <link rel="icon" href="./images/logo_chap.png">
+      <link rel="icon" href="logo_chap.png">
     </head> 
     <body>
     <header style="text-align: center; padding: 20px;">
-        <img src="./images/logo.png" alt="Logo" style="width: 500px;"> 
+        <img src="logo.png" alt="Logo" style="width: 500px;"> 
     </header>
     <header>
         <div class="navbar">
@@ -66,17 +66,17 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
 
             <nav class="nav-items-container">
                 <ul class="main-menu" id="main-menu">
-                    <li class="menu-item"><a href="./accueil_etu.HTML" class="top-level-entry ">Accueil</a></li>
-                    <li class="menu-item"><a href="./contact_etu.HTML" class="top-level-entry">Contact</a></li>
-                    <li class="menu-item"><a href="./profil.HTML" class="top-level-entry active">Profil</a></li>
-                    <li class="menu-item"><a href="./recherche_etu.HTML" class="top-level-entry">Offre</a></li>
+                    <li class="menu-item"><a href="accueil_etu.php" class="top-level-entry ">Accueil</a></li>
+                    <li class="menu-item"><a href="contact_etu.HTML" class="top-level-entry">Contact</a></li>
+                    <li class="menu-item"><a href="profil.HTML" class="top-level-entry active">Profil</a></li>
+                    <li class="menu-item"><a href="recherche_etu.php" class="top-level-entry">Offre</a></li>
 
 
                 </ul>
 
                 <!-- Liens de Connexion et S'inscrire à droite -->
                 <div class="auth-links">
-                    <a href="./accueil.html" class="button">Déconnexion</a>
+                    <a href="index.php" class="button">Déconnexion</a>
                 </div>
             </nav>
         </div>
@@ -92,7 +92,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
     <!-- Contenu principal -->
     <main class="content">
         <section class="company">
-            <img src="./images/anakin.png"  class="company-logo">
+            <img src="anakin.png"  class="company-logo">
             <div class="company-info">
                 <h2>Anakin Skywalker</h2>
                 <p>2eme année d'ingénieurie</p>
