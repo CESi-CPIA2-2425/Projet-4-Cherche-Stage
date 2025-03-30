@@ -119,7 +119,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
             <ul class="main-menu" id="main-menu">
                 <li class="menu-item"><a href="accueil_etu.php" class="top-level-entry active">Accueil</a></li>
                 <li class="menu-item"><a href="contact_etu.HTML" class="top-level-entry">Contact</a></li>
-                <li class="menu-item"><a href="profil.HTML" class="top-level-entry">Profil</a></li>
+                <li class="menu-item"><a href="profil.php" class="top-level-entry">Profil</a></li>
                 <li class="menu-item"><a href="recherche_etu.php" class="top-level-entry">Offre</a></li>
             </ul>
             <div class="auth-links">
@@ -154,7 +154,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
                 <?php foreach ($annonces_visitees as $annonce): ?>
                     <article class="job-card">
                         <h3><?= htmlspecialchars($annonce['titre']) ?></h3>
-                        <form action="voir_offre.php" method="get">
+                        <form action="postuler.php" method="get">
                             <input type="hidden" name="id_ann" value="<?= $annonce['Id_ann'] ?>">
                             <button type="submit" class="verifier-btn">Voir l'offre</button>
                         </form>

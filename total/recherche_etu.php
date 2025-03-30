@@ -35,10 +35,12 @@ WHERE a.contenu LIKE :search
         foreach ($annonces as $annonce) {
             echo '<div class="annonce">';
             echo '  <div class="box">';
-            echo '    <h2 class="annonce-titre">' . htmlspecialchars($annonce['titre']) . '</p>';
-            echo '    <h3 class="annonce-entreprise">Société: ' . htmlspecialchars($annonce['entreprise']) . ' |</h2>';
-            echo '    <p class="annonce-description">' . htmlspecialchars($annonce['description']) . '</p>';
-            echo '    <button class="verifier-btn" id="verifier-btn">Voir l\'offre</button>';
+            echo '    <h2 class="annonce-titre">' . htmlspecialchars($annonce['titre']) . '</h2>';
+            echo '    <h3 class="annonce-entreprise">Société: ' . htmlspecialchars($annonce['entreprise']) . ' |</h3>';
+            echo '    <form action="postuler.php" method="get">';
+	    echo '        <input type="hidden" name="id_ann" value="' . htmlspecialchars($annonce['Id_ann']) . '">';
+	    echo '        <button type="submit" class="verifier-btn">Voir l\'offre</button>';
+	    echo '    </form>';
             echo '  </div>';
             echo '</div>';
         }
