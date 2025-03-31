@@ -290,15 +290,22 @@ main{
   }
   
 
+.btn-action {
+    background-color: #2368e1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
 
-
-
-
-
-
-
-  
-
+.btn-action:hover {
+    background-color: #1a4faa;
+}
 
 
 /*body*/

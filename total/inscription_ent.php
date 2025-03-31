@@ -1,4 +1,6 @@
 <?php
+session_start(); // Démarrage de session
+
 // Connexion à la base de données
 $host = 'localhost';
 $dbname = 'stage';
@@ -18,36 +20,46 @@ try {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Récupération des champs du formulaire
-    $entreprise = htmlspecialchars($_POST['entreprise']);
-    $lastname = htmlspecialchars($_POST['lastname']);
-    $surname = htmlspecialchars($_POST['surname']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $address = htmlspecialchars($_POST['address']);
-    $SIRET = htmlspecialchars($_POST['SIRET']);
-    $SIREN = htmlspecialchars($_POST['SIREN']);
-    $domaine = htmlspecialchars($_POST['domaine']);
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash du mot de passe
+    $mot_de_passe = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $civilite = htmlspecialchars($_POST['civilite']);
+    $role = 'entreprise';
 
-    // Vérifier si l'email est déjà utilisé
-    $stmt = $pdo->prepare("SELECT Id_uti FROM Utilisateur WHERE email = ?");
-    $stmt->execute([$email]);
-
-    if ($stmt->rowCount() > 0) {
-        echo "Erreur : cet email est déjà utilisé.";
-        exit;
-    }
+    // Informations supplémentaires entreprise (ex : domaine, SIRET, etc.)
+    $domaine = isset($_POST['domaine']) ? htmlspecialchars($_POST['domaine']) : null;
+    $siret = isset($_POST['siret']) ? htmlspecialchars($_POST['siret']) : null;
 
     try {
-        // Insertion dans la table Utilisateur (compte entreprise)
-        $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, prenom, email, mdp_crypte) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$lastname, $surname, $email, $password]);
+        // Vérifier si l'email est déjà utilisé
+        $stmt = $pdo->prepare("SELECT Id_uti FROM Utilisateur WHERE email = ?");
+        $stmt->execute([$email]);
 
-        $id_utilisateur = $pdo->lastInsertId();  // ID de l'utilisateur créé
+        if ($stmt->rowCount() > 0) {
+            echo "Erreur : cet email est déjà utilisé.";
+            exit;
+        }
 
-        // Insertion dans la table Entreprise
-        $stmt = $pdo->prepare("INSERT INTO Entreprise (Id_uti, nom_ent, adresse, SIREN, domaine_activite) VALUES (?, ?, ?, ?, ?)");
-        $stmt->execute([$id_utilisateur, $entreprise, $address, $SIREN, $domaine]);
+        // Insertion dans la table Utilisateur
+        $stmt = $pdo->prepare("INSERT INTO Utilisateur (nom, prenom, email, mot_de_passe, role) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $role]);
 
+        $id_utilisateur = $pdo->lastInsertId();
+
+        // Insertion dans la table Entreprise (adapter les champs selon ton modèle)
+        $stmt = $pdo->prepare("INSERT INTO Entreprise (nom_ent, domaine_activite, siret, Id_uti) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$nom, $domaine, $siret, $id_utilisateur]);
+
+        // 🔐 Création de la session utilisateur
+        $_SESSION['id'] = $id_utilisateur;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['email'] = $email;
+        $_SESSION['role'] = $role;
+
+        // ✅ Affichage JS en console pour vérifier que la session est bien créée
+        echo "<script>console.log('Session ID: " . $_SESSION['id'] . "');</script>";
         echo "Inscription réussie !";
 
     } catch (PDOException $e) {
@@ -57,3 +69,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
+

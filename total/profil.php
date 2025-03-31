@@ -7,8 +7,14 @@ $dbname = "stage";
 $username = "root";
 $password = "root";
 
-// ⚠️ Pour test : on fixe l'ID de l'étudiant connecté
-$_SESSION['Id_etu'] = 1;
+// Identifier dynamiquement l'utilisateur connecté
+if (!isset($_SESSION['id']) || !isset($_SESSION['role'])) {
+    die("Erreur : utilisateur non connecté.");
+}
+
+$id_utilisateur = $_SESSION['id'];
+$role = $_SESSION['role'];
+
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -38,7 +44,7 @@ if (isset($_GET['search'])) {
     JOIN Entreprise e ON e.Id_ann = a.Id_ann
     WHERE w.Id_etu = :id_etu";
 
-    $params = ['id_etu' => $Id_etu]; // ✅ paramètre bien nommé
+    $params = ['id_etu' => $Id_etu]; 
 
     if (!empty($search)) {
         $query .= " AND (
@@ -70,8 +76,8 @@ if (isset($_GET['search'])) {
 }
 
 // Chargement du profil
-$stmtProfil = $pdo->prepare("SELECT nom, prenom, email, descriptif FROM Utilisateur WHERE Id_uti = :Id");
-$stmtProfil->execute(['Id' => $Id_etu]);
+$stmtProfil = $pdo->prepare("SELECT nom, prenom, email, descriptif FROM Utilisateur WHERE Id_uti = :id");
+$stmtProfil->execute(['id' => $id_utilisateur]);
 $profil = $stmtProfil->fetch(PDO::FETCH_ASSOC);
 ?>
 

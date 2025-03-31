@@ -4,7 +4,7 @@ session_start();
 $host = 'localhost';
 $dbname = 'stage';
 $username = 'root';
-$password = '';
+$password = 'root';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -19,13 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $sql = "SELECT id_uti, nom, prenom, role, mdp_crypte FROM utilisateur WHERE email = :email";
+        $sql = "SELECT id_uti, nom, prenom, role, mot_de_passe FROM Utilisateur WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
         $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($utilisateur && password_verify($password, $utilisateur['mdp_crypte'])) {
+        if ($utilisateur && password_verify($password, $utilisateur['mot_de_passe'])) {
             // On stocke les infos utiles en session
             $_SESSION['id'] = $utilisateur['id_uti'];
             $_SESSION['email'] = $email;

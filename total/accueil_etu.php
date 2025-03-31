@@ -243,7 +243,7 @@ document.getElementById("search-input").addEventListener("keyup", rechercherOffr
     
       <!-- Bas de page -->
       <div class="footer-bottom">
-        <p>Copyright © 2025 - Tous droits réservés. <a href="./mentions_legales.html">Mentions légales</a></p>
+        <p>Copyright © 2025 - Tous droits réservés. <a href="mentions_legales.html">Mentions légales</a></p>
       </div>
     </footer>
     <script src="menu.js"></script> 
