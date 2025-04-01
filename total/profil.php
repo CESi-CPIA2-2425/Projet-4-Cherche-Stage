@@ -1,20 +1,19 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-session_start(); // ← nécessaire même pour définir une session manuellement
+session_start(); // Nécessaire pour accéder à la session
 
 $host = "localhost";
 $dbname = "stage";
 $username = "root";
 $password = "root";
 
-// Identifier dynamiquement l'utilisateur connecté
+// Vérifie que l'utilisateur est bien connecté
 if (!isset($_SESSION['id']) || !isset($_SESSION['role'])) {
     die("Erreur : utilisateur non connecté.");
 }
 
 $id_utilisateur = $_SESSION['id'];
-$role = $_SESSION['role'];
-
+$role = $_SESSION['role']; // Peut être 'etudiant', 'pilote' ou 'entreprise'
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
@@ -23,40 +22,37 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-// Récupération de l'ID de l'étudiant connecté
-if (!isset($_SESSION['Id_etu'])) {
-    die("Erreur : utilisateur non connecté.");
+$stmtEtu = $pdo->prepare("SELECT Id_etu FROM Etudiant WHERE Id_uti = :id_uti");
+$stmtEtu->execute(['id_uti' => $id_utilisateur]);
+$etu = $stmtEtu->fetch(PDO::FETCH_ASSOC);
+
+if (!$etu) {
+    die("Erreur : étudiant non trouvé.");
 }
 
-$Id_etu = $_SESSION['Id_etu'];
+$Id_etu = $etu['Id_etu'];
 
-// ⚠️ Si requête AJAX de recherche dans la wishlist
+// Si on reçoit une requête AJAX de recherche
 if (isset($_GET['search'])) {
     $search = trim($_GET['search']);
 
     $query = "SELECT 
-        a.Id_ann,
-        a.titre,
-        a.contenu AS description,
-        e.nom_ent
-    FROM Wishlist w
-    JOIN Annonce a ON w.Id_ann = a.Id_ann
-    JOIN Entreprise e ON e.Id_ann = a.Id_ann
-    WHERE w.Id_etu = :id_etu";
+    a.Id_ann,
+    a.titre,
+    a.contenu AS description,
+    e.nom_ent
+FROM Wishlist w
+JOIN Annonce a ON w.Id_ann = a.Id_ann
+JOIN Entreprise e ON a.Id_ent = e.Id_ent
+WHERE w.Id_etu = :id_etu";
 
-    $params = ['id_etu' => $Id_etu]; 
-
-    if (!empty($search)) {
-        $query .= " AND (
-            a.titre LIKE :search 
-            OR a.contenu LIKE :search 
-            OR e.nom_ent LIKE :search
-        )";
-        $params['search'] = '%' . $search . '%'; // ✅ ajout si non vide
-    }
+$params = [
+    'id_etu' => $Id_etu,
+    'search' => "%$search%"
+];
 
     $stmt = $pdo->prepare($query);
-    $stmt->execute($params);
+$stmt->execute(['id_etu' => $Id_etu]);
     $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($annonces) > 0) {
@@ -72,14 +68,18 @@ if (isset($_GET['search'])) {
     } else {
         echo '<p>Aucune offre trouvée.</p>';
     }
+
+    // ⛔ Important : on quitte ici pour que le HTML principal ne s'affiche pas
     exit;
 }
 
+// Si on n’est pas en AJAX, on continue avec le HTML principal
 // Chargement du profil
 $stmtProfil = $pdo->prepare("SELECT nom, prenom, email, descriptif FROM Utilisateur WHERE Id_uti = :id");
 $stmtProfil->execute(['id' => $id_utilisateur]);
 $profil = $stmtProfil->fetch(PDO::FETCH_ASSOC);
 ?>
+
 
 
 

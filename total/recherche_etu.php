@@ -13,20 +13,20 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-//  Si on reçoit une requête AJAX de recherche, on retourne uniquement les résultats
+// Si on reçoit une requête AJAX de recherche, on retourne uniquement les résultats
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search = trim($_GET['search']);
-   
+
     $query = "SELECT 
-    a.Id_ann,
-    a.contenu AS description,
-    a.titre,
-    e.nom_ent AS entreprise
-FROM Annonce a
-JOIN Entreprise e ON a.Id_ann = e.Id_ann
-WHERE a.contenu LIKE :search
-   OR a.titre LIKE :search";
-   //ajouter le titre...................................................................................................................
+        a.Id_ann,
+        a.contenu AS description,
+        a.titre,
+        e.nom_ent AS entreprise
+    FROM Annonce a
+    JOIN Entreprise e ON a.Id_ent = e.Id_ent
+    WHERE a.titre LIKE :search
+       OR e.nom_ent LIKE :search";
+
     $stmt = $pdo->prepare($query);
     $stmt->execute(['search' => "%$search%"]);
     $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,19 +38,20 @@ WHERE a.contenu LIKE :search
             echo '    <h2 class="annonce-titre">' . htmlspecialchars($annonce['titre']) . '</h2>';
             echo '    <h3 class="annonce-entreprise">Société: ' . htmlspecialchars($annonce['entreprise']) . ' |</h3>';
             echo '    <form action="postuler.php" method="get">';
-	    echo '        <input type="hidden" name="id_ann" value="' . htmlspecialchars($annonce['Id_ann']) . '">';
-	    echo '        <button type="submit" class="verifier-btn">Voir l\'offre</button>';
-	    echo '    </form>';
+            echo '        <input type="hidden" name="id_ann" value="' . htmlspecialchars($annonce['Id_ann']) . '">';
+            echo '        <button type="submit" class="verifier-btn">Voir l\'offre</button>';
+            echo '    </form>';
             echo '  </div>';
             echo '</div>';
         }
     } else {
-        echo '<p>Aucun profil trouvé.</p>';
+        echo '<p>Aucune offre trouvée.</p>';
     }
 
-    exit; //  important : empêche d'afficher tout le HTML ci-dessous
+    exit; // important : empêche d'afficher le HTML ci-dessous
 }
 ?>
+
 <!doctype html> 
 <html lang="fr"> 
    <head> 
@@ -95,7 +96,7 @@ WHERE a.contenu LIKE :search
                 <ul class="main-menu" id="main-menu">
                     <li class="menu-item"><a href="accueil_etu.php" class="top-level-entry ">Accueil</a></li>
                     <li class="menu-item"><a href="contact_etu.HTML" class="top-level-entry">Contact</a></li>
-                    <li class="menu-item"><a href="profil.HTML" class="top-level-entry">Profil</a></li>
+                    <li class="menu-item"><a href="profil.php" class="top-level-entry">Profil</a></li>
                     <li class="menu-item"><a href="recherche_etu.php" class="top-level-entry active">Offre</a></li>
                 </ul>
 

@@ -2,9 +2,6 @@
 session_start();
 header('Content-Type: text/html; charset=utf-8');
 
-// ⚠️ Simuler un étudiant connecté (en production : utiliser le login)
-$_SESSION['id_etu'] = 1;
-
 $host = "localhost";
 $dbname = "stage";
 $username = "root";
@@ -17,61 +14,71 @@ try {
     die("Erreur de connexion : " . $e->getMessage());
 }
 
-$id_ann = isset($_GET['id_ann']) ? (int)$_GET['id_ann'] : 0;
-$id_etu = $_SESSION['id_etu'] ?? null;
+// Vérifier que l'utilisateur est connecté
+if (!isset($_SESSION['id'])) {
+    die("Erreur : utilisateur non connecté.");
+}
 
-// Enregistrement de la visite
-if ($id_ann && $id_etu) {
+$id_utilisateur = $_SESSION['id'];
+$id_ann = isset($_GET['id_ann']) ? (int)$_GET['id_ann'] : 0;
+
+// Vérifier que l'annonce existe
+$query = "SELECT a.Id_ann, a.titre, a.contenu AS description, e.nom_ent AS entreprise
+          FROM Annonce a
+          JOIN Entreprise e ON a.Id_ent = e.Id_ent
+          WHERE a.Id_ann = :id_ann";
+
+$stmt = $pdo->prepare($query);
+$stmt->execute(['id_ann' => $id_ann]);
+$annonce = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$annonce) {
+    die("Erreur : annonce introuvable.");
+}
+
+// Vérifier si l'utilisateur est un étudiant
+$stmtCheckEtu = $pdo->prepare("SELECT Id_etu FROM Etudiant WHERE Id_uti = :id_uti");
+$stmtCheckEtu->execute(['id_uti' => $id_utilisateur]);
+$etu = $stmtCheckEtu->fetch(PDO::FETCH_ASSOC);
+$id_etu = $etu['Id_etu'] ?? null;
+
+if ($id_etu) {
+    // Enregistrement de la visite
     $insert = $pdo->prepare("INSERT IGNORE INTO Visiter (Id_etu, Id_ann) VALUES (:id_etu, :id_ann)");
     $insert->execute([
         'id_etu' => $id_etu,
         'id_ann' => $id_ann
     ]);
-}
 
-// Gestion du clic sur le bouton Wishlist
-$wishlistAction = "AJOUTER A MA WISHLIST";
-if ($id_ann && $id_etu) {
-    // Vérifier si l'annonce est déjà en wishlist
+    // Gestion Wishlist
+    $wishlistAction = "AJOUTER A MA WISHLIST";
     $check = $pdo->prepare("SELECT * FROM Wishlist WHERE Id_etu = :id_etu AND Id_ann = :id_ann");
-    $check->execute([
-        'id_etu' => $id_etu,
-        'id_ann' => $id_ann
-    ]);
+    $check->execute(['id_etu' => $id_etu, 'id_ann' => $id_ann]);
 
     if ($check->fetch()) {
         $wishlistAction = "RETIRER DE MA WISHLIST";
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['wishlist'])) {
             $remove = $pdo->prepare("DELETE FROM Wishlist WHERE Id_etu = :id_etu AND Id_ann = :id_ann");
-            $remove->execute([
-                'id_etu' => $id_etu,
-                'id_ann' => $id_ann
-            ]);
+            $remove->execute(['id_etu' => $id_etu, 'id_ann' => $id_ann]);
             header("Location: postuler.php?id_ann=$id_ann");
             exit;
         }
     } else {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['wishlist'])) {
             $add = $pdo->prepare("INSERT INTO Wishlist (Id_etu, Id_ann) VALUES (:id_etu, :id_ann)");
-            $add->execute([
-                'id_etu' => $id_etu,
-                'id_ann' => $id_ann
-            ]);
+            $add->execute(['id_etu' => $id_etu, 'id_ann' => $id_ann]);
             header("Location: postuler.php?id_ann=$id_ann");
             exit;
         }
     }
+} else {
+    // L'utilisateur connecté n'est pas un étudiant, donc on désactive les fonctionnalités de suivi/wishlist
+    $wishlistAction = null;
+    $wishlistAction = "WISHLIST RESERVEE AUX ETUDIANTS";
 }
-
-$query = "SELECT a.Id_ann, a.titre, a.contenu AS description, e.nom_ent AS entreprise
-          FROM Annonce a
-          JOIN Entreprise e ON a.Id_ann = e.Id_ann
-          WHERE a.Id_ann = :id_ann";
-
-$stmt = $pdo->prepare($query);
-$stmt->execute(['id_ann' => $id_ann]);
-$annonce = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
+
+
 <!doctype html>
 <html lang="fr">
 <head>

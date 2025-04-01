@@ -20,16 +20,16 @@ try {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Récupération des champs du formulaire
+    $entreprise = htmlspecialchars($_POST['entreprise']);   // Nom de l'entreprise
     $nom = htmlspecialchars($_POST['nom']);
     $prenom = htmlspecialchars($_POST['prenom']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $adresse = htmlspecialchars($_POST['address']);
+    $siret = htmlspecialchars($_POST['SIRET']);
+    $siren = htmlspecialchars($_POST['SIREN']);
+    $domaine = htmlspecialchars($_POST['domaine']);
     $mot_de_passe = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    $civilite = htmlspecialchars($_POST['civilite']);
     $role = 'entreprise';
-
-    // Informations supplémentaires entreprise (ex : domaine, SIRET, etc.)
-    $domaine = isset($_POST['domaine']) ? htmlspecialchars($_POST['domaine']) : null;
-    $siret = isset($_POST['siret']) ? htmlspecialchars($_POST['siret']) : null;
 
     try {
         // Vérifier si l'email est déjà utilisé
@@ -47,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $id_utilisateur = $pdo->lastInsertId();
 
-        // Insertion dans la table Entreprise (adapter les champs selon ton modèle)
-        $stmt = $pdo->prepare("INSERT INTO Entreprise (nom_ent, domaine_activite, siret, Id_uti) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$nom, $domaine, $siret, $id_utilisateur]);
+        // Insertion dans la table Entreprise (adapter à ta structure réelle)
+        $stmt = $pdo->prepare("INSERT INTO Entreprise (nom_ent, adresse, siret, siren, domaine_activite, Id_uti) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$entreprise, $adresse, $siret, $siren, $domaine, $id_utilisateur]);
 
         // 🔐 Création de la session utilisateur
         $_SESSION['id'] = $id_utilisateur;
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['role'] = $role;
 
-        // ✅ Affichage JS en console pour vérifier que la session est bien créée
+        // ✅ Affichage JS pour debug
         echo "<script>console.log('Session ID: " . $_SESSION['id'] . "');</script>";
         echo "Inscription réussie !";
 

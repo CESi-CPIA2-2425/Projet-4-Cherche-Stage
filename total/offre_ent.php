@@ -1,9 +1,12 @@
 <?php
 session_start();
 
-// ID utilisateur de l’entreprise simulée (à remplacer plus tard par un vrai login)
-$_SESSION['id_uti'] = 9;
-$id_uti = $_SESSION['id_uti'];
+// ⚠️ Remplacer par la session utilisateur quand le système de login entreprise sera prêt
+// $_SESSION['id'] = ...;
+// $id_uti = $_SESSION['id'];
+
+// 🔧 Pour les tests, on simule un utilisateur entreprise avec un ID fixe
+$id_uti = 7;
 
 // Connexion BDD
 $host = "localhost";
@@ -18,15 +21,17 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-// Récupérer les annonces de l’entreprise
+// ✅ Récupération des annonces postées par cette entreprise
 $query = "SELECT a.Id_ann, a.titre, a.contenu
           FROM Annonce a
-          JOIN Entreprise e ON e.Id_ann = a.Id_ann
+          JOIN Entreprise e ON a.Id_ent = e.Id_ent
           WHERE e.Id_uti = :id_uti";
 $stmt = $pdo->prepare($query);
 $stmt->execute(['id_uti' => $id_uti]);
 $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+
 
 <!doctype html> 
 <html lang="fr"> 

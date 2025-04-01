@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
             isValid = false;
         }
 
+        // ✅ Active ou désactive le bouton selon la validité
+        submitButton.disabled = !isValid;
         return isValid;
     }
 
@@ -74,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".error").forEach(err => err.remove());
     }
 
+    // Gérer la soumission du formulaire
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         if (!validateForm()) {
@@ -86,23 +89,27 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData
         })
-            .then(response => response.text())
-            .then(data => {
-                if (data.includes("Inscription réussie")) {
-                    alert("Inscription réussie ! Bienvenue !");
-                    window.location.href = 'accueil_ent.php';
-                } else {
-                    alert(data);
-                }
-            })
-            .catch(error => {
-                console.error("Erreur AJAX :", error);
-                alert("Une erreur est survenue. Veuillez réessayer.");
-            });
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes("Inscription réussie")) {
+                alert("Inscription réussie ! Bienvenue !");
+                window.location.href = 'accueil_ent.php';
+            } else {
+                alert(data);
+            }
+        })
+        .catch(error => {
+            console.error("Erreur AJAX :", error);
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        });
     });
 
+    // Validation en temps réel
     document.querySelectorAll("input").forEach(input => {
         input.addEventListener("input", validateForm);
     });
+
+    // Appel initial pour activer le bouton si déjà rempli
+    validateForm();
 });
 
